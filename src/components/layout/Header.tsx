@@ -19,16 +19,43 @@ export function Header() {
   return (
     <header className="site-header fixed top-0 left-0 w-full h-[95px] bg-white shadow-[var(--shadow-sm)] z-[1000]">
       <div className="header-container max-w-[var(--container-max)] mx-auto px-4 h-full flex items-center justify-between">
-        <a href="#hero" className="logo flex flex-col gap-1">
+        <a href="/" className="logo flex flex-col gap-1">
           <span className="logo-text-small text-xs text-[var(--color-text-light)] font-normal">三河発のAIスクールなら</span>
           <h1 className="logo-text-large text-2xl font-black text-[var(--color-primary)] tracking-[-0.02em]">みかわAI学校</h1>
         </a>
 
-        {/* ハンバーガーメニューボタン */}
+        {/* PC用ナビゲーション（md以上で表示） */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navigationItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-base font-medium text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+          <a
+            href={noteLink.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-base font-medium text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors"
+          >
+            {noteLink.label} ↗
+          </a>
+          <a
+            href="/#contact"
+            className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-6 py-3 rounded-full font-bold text-base transition-all hover:translate-y-[-2px] hover:shadow-lg"
+          >
+            優先登録
+          </a>
+        </nav>
+
+        {/* モバイル用ハンバーガーメニューボタン（mdまでで表示） */}
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="hamburger-menu flex flex-col items-center gap-1 bg-[var(--color-primary)] text-white py-3 px-4 rounded-full text-xs font-bold shadow-[var(--shadow-md)]"
+          className="hamburger-menu md:hidden flex flex-col items-center gap-1 bg-[var(--color-primary)] text-white py-3 px-4 rounded-full text-xs font-bold shadow-[var(--shadow-md)]"
           aria-expanded={isOpen}
           aria-label="メニュー"
         >
