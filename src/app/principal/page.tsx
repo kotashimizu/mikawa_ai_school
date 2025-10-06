@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import { principalProfile } from '@/lib/content/static-content';
 
@@ -19,6 +20,19 @@ export default function PrincipalPage() {
             まずは雑談から、気になることを一緒に整理しましょう。
           </p>
         </header>
+
+        {/* 学長の写真 */}
+        <div className="flex justify-center">
+          <div className="relative w-full max-w-md aspect-square rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+            <Image
+              src="/images/principal-kota.png"
+              alt="志水康太（学長）"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
         <section className="grid gap-6 lg:grid-cols-[2fr_1fr] lg:items-start">
           <article className="space-y-6 rounded-3xl border border-slate-200/70 bg-slate-50/70 p-8 text-sm text-slate-600">
             <div className="space-y-2">

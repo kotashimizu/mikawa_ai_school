@@ -4,19 +4,27 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="section-split section-split--warm"
+      className="py-20 md:py-32 bg-white"
       aria-labelledby="contact-heading"
     >
-      <div className="section-container">
-        <div className="section-card space-y-10 lg:flex lg:gap-10">
+      <div className="container mx-auto px-6 sm:px-10 max-w-[1400px]">
+        {/* ヘッダー */}
+        <div className="text-center mb-20">
+          <h2 id="contact-heading" className="text-[clamp(48px,8vw,120px)] font-black text-[#1A1A1A] mb-6 tracking-tight leading-none">
+            CONTACT
+          </h2>
+          <p className="text-sm md:text-base text-[var(--color-text-light)] mb-8">お問い合わせ</p>
+          
+          <h3 className="text-2xl md:text-4xl font-bold text-[var(--color-primary)] mb-6">
+            まずは気軽にメッセージしてください
+          </h3>
+          <p className="text-base md:text-lg text-[var(--color-text)] leading-relaxed max-w-[700px] mx-auto">
+            日時の相談や内容のリクエストなど、ラフなご相談も大歓迎です。折り返しご連絡します。
+          </p>
+        </div>
+
+        <div className="space-y-10 lg:flex lg:gap-10">
           <div className="flex-1 space-y-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Contact</p>
-            <h2 id="contact-heading" className="section-heading text-left">
-              まずは気軽にメッセージしてください
-            </h2>
-            <p className="section-subheading text-left">
-              日時の相談や内容のリクエストなど、ラフなご相談も大歓迎です。折り返しご連絡します。
-            </p>
             <div className="rounded-2xl border border-slate-200/70 bg-slate-50/80 p-6 text-sm text-slate-600">
               <p>フォーム準備中のため、メールかSNSでご連絡ください。</p>
               <p className="mt-3 font-semibold text-slate-800">info@example.jp</p>

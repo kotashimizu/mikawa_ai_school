@@ -6,8 +6,11 @@ import { Header } from '@/components/layout/Header';
 import { UIProviders } from '@/components/providers/ui-providers';
 import './globals.css';
 
+// Noto Sans JPフォントの設定
+// Next.jsのGoogle Fontsインポート機能を使用
 const notoSans = Noto_Sans_JP({
   subsets: ['latin'],
+  weight: ['400', '500', '700', '900'],
   variable: '--font-noto-sans-jp',
   display: 'swap',
 });
@@ -43,11 +46,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSans.variable}`} suppressHydrationWarning>
-      <body className="bg-surface text-slate-900">
+    <html lang="ja" className={`${notoSans.variable} scroll-smooth`} suppressHydrationWarning>
+      <body className={`${notoSans.className} bg-white text-[var(--color-text)] antialiased`}>
         <UIProviders>
           <Header />
-          <main className="min-h-[calc(100vh-320px)] bg-gradient-to-b from-white via-surface/40 to-white">
+          <main>
             {children}
           </main>
           <Footer />

@@ -1,0 +1,9 @@
+{
+  "crons": [
+    {
+      "path": "/api/note-articles",
+      "schedule": "0 0 * * *"
+    }
+  ]
+}
+

@@ -3,13 +3,9 @@
 import { useState } from 'react';
 
 const navigationItems = [
-  { label: '大学紹介', href: '/#feature-highlights' },
-  { label: '学び方', href: '/#programs' },
-  { label: 'キャンパス', href: '/#campus-life' },
   { label: 'イベント', href: '/events' },
   { label: '学長紹介', href: '/principal' },
-  { label: '目的から探す', href: '/#goals' },
-  { label: 'お知らせ', href: '/#news' },
+  { label: 'お知らせ', href: '/news' },
 ];
 
 const noteLink = {
@@ -21,79 +17,84 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/70 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-screen-xl items-center justify-between px-6 py-4 sm:px-10">
-        <div className="flex items-center gap-6">
-          <a href="#hero" className="flex flex-col text-slate-900">
-            <span className="text-xs font-medium tracking-[0.4em] text-slate-400">三河発のAIスクールなら</span>
-            <span className="text-xl font-black leading-none tracking-tight sm:text-2xl">みかわAI学校</span>
-          </a>
-        </div>
-        <nav className="hidden items-center gap-8 text-sm font-semibold text-slate-700 lg:flex">
-          {navigationItems.map((item) => (
-            <a key={item.href} href={item.href} className="transition hover:text-primary">
-              {item.label}
-            </a>
-          ))}
-          <a
-            href={noteLink.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-primary transition hover:opacity-80"
-          >
-            {noteLink.label}
-            <span aria-hidden>↗</span>
-          </a>
-        </nav>
-        <div className="hidden items-center gap-4 lg:flex">
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">24時間いつでも</span>
-          <a
-            href="/#contact"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white shadow-sm"
-          >
-            優先登録
-            <span aria-hidden>→</span>
-          </a>
-        </div>
+    <header className="site-header fixed top-0 left-0 w-full bg-white/98 shadow-[var(--shadow-sm)] z-[1000]">
+      <div className="header-container max-w-[var(--container-max)] mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="#hero" className="logo flex flex-col gap-1">
+          <span className="logo-text-small text-xs text-[var(--color-text-light)] font-normal">三河発のAIスクールなら</span>
+          <h1 className="logo-text-large text-2xl font-black text-[var(--color-primary)] tracking-[-0.02em]">みかわAI学校</h1>
+        </a>
+
+        {/* ハンバーガーメニューボタン */}
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="flex items-center gap-3 rounded-full border border-slate-300 bg-white px-5 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-slate-800 shadow-sm transition hover:border-primary hover:text-primary lg:hidden"
+          className="hamburger-menu flex flex-col items-center gap-1 bg-[var(--color-primary)] text-white py-3 px-4 rounded-full text-xs font-bold shadow-[var(--shadow-md)]"
           aria-expanded={isOpen}
-          aria-label="メニューを開く"
+          aria-label="メニュー"
         >
-          <span className="flex flex-col gap-[3px]">
-            <span className="block h-[2px] w-5 bg-current"></span>
-            <span className="block h-[2px] w-5 bg-current"></span>
-            <span className="block h-[2px] w-5 bg-current"></span>
-          </span>
-          MENU
+          <div className="hamburger-icon flex flex-col gap-[3px] w-6">
+            <span className="block w-full h-[2px] bg-white rounded-sm transition-all"></span>
+            <span className="block w-full h-[2px] bg-white rounded-sm transition-all"></span>
+            <span className="block w-full h-[2px] bg-white rounded-sm transition-all"></span>
+          </div>
+          <span className="menu-text text-[10px] tracking-[0.05em]">MENU</span>
         </button>
       </div>
-      {isOpen ? (
-        <nav className="border-t border-slate-200 bg-white/95 px-6 py-6 text-sm text-slate-700 sm:px-10 lg:hidden">
-          <div className="mx-auto flex w-full max-w-screen-xl flex-col gap-4">
-            {navigationItems.map((item) => (
-              <a key={item.href} href={item.href} className="transition hover:text-primary" onClick={() => setIsOpen(false)}>
-                {item.label}
-              </a>
-            ))}
-            <a
-              href={noteLink.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 font-semibold text-primary"
-            >
-              {noteLink.label}
-              <span aria-hidden>↗</span>
-            </a>
-            <a href="/#contact" className="inline-flex items-center gap-2 font-semibold text-primary" onClick={() => setIsOpen(false)}>
-              優先登録
-              <span aria-hidden>→</span>
-            </a>
-          </div>
-        </nav>
-      ) : null}
+
+      {/* ドロワーメニュー */}
+      {isOpen && (
+        <>
+          <div
+            className="drawer-overlay fixed top-0 left-0 w-full h-full bg-black/50 z-[1999] transition-opacity"
+            onClick={() => setIsOpen(false)}
+          />
+          <nav className="drawer-menu fixed top-0 right-0 bottom-0 w-full max-w-[400px] bg-white z-[2000] overflow-y-auto transition-transform">
+            <div className="drawer-content py-16 px-6">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="drawer-close absolute top-6 right-6 text-2xl text-[var(--color-text)]"
+                aria-label="閉じる"
+              >
+                ×
+              </button>
+
+              <ul className="drawer-nav mb-12">
+                {navigationItems.map((item) => (
+                  <li key={item.href} className="border-b border-[var(--color-border)]">
+                    <a
+                      href={item.href}
+                      className="block py-4 text-lg font-medium transition-colors hover:text-[var(--color-primary)]"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+                <li className="border-b border-[var(--color-border)]">
+                  <a
+                    href={noteLink.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block py-4 text-lg font-medium transition-colors hover:text-[var(--color-primary)]"
+                  >
+                    {noteLink.label} ↗
+                  </a>
+                </li>
+              </ul>
+
+              <div className="drawer-utilities flex flex-col gap-4">
+                <a
+                  href="/#contact"
+                  className="campus-login-btn inline-block py-3 px-6 bg-[var(--color-primary)] text-white text-center rounded-lg font-bold"
+                  onClick={() => setIsOpen(false)}
+                >
+                  優先登録
+                </a>
+              </div>
+            </div>
+          </nav>
+        </>
+      )}
     </header>
   );
 }

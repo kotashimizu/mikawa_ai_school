@@ -33,109 +33,106 @@ export function HeroSection() {
   const [showAdmissionBanner, setShowAdmissionBanner] = useState(true);
 
   return (
-    <section id="hero" className="hero-section bg-hero-surface">
-      <div className="hero-animated-gradient" aria-hidden />
-      <div className="hero-noise" aria-hidden />
-      <div className="hero-blob hero-blob--left" aria-hidden />
-      <div className="hero-blob hero-blob--right" aria-hidden />
-      <HeroParticles />
+    <section className="hero relative min-h-[80vh] md:min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F5F5F5] to-[#E5E5E5] overflow-hidden mt-16 md:mt-20">
+      {/* 背景装飾 */}
+      <div className="hero-bg absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
+        {/* 左上の大きな曲線 */}
+        <div className="absolute -top-[10%] -left-[5%] w-[800px] h-[400px] rounded-[50%_50%_50%_30%/60%_60%_40%_40%] bg-gradient-to-br from-[rgba(198,140,198,0.7)] via-[rgba(218,180,218,0.5)] to-[rgba(180,200,200,0.4)] blur-[40px] animate-[floatCurve_20s_ease-in-out_infinite]" />
+        {/* 右側の大きな曲線 */}
+        <div className="absolute top-[15%] -right-[10%] w-[900px] h-[500px] rounded-[40%_50%_50%_50%/50%_40%_60%_50%] bg-gradient-to-br from-[rgba(200,220,230,0.5)] via-[rgba(220,235,240,0.4)] to-[rgba(180,200,210,0.3)] blur-[50px] animate-[floatCurve_25s_ease-in-out_infinite_reverse]" />
+        <div className="hero-overlay absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_30%_40%,rgba(255,255,255,0.3)_0%,transparent_60%)] z-[1]" />
+        <HeroParticles />
+      </div>
 
-      <div className="hero-content mx-auto flex min-h-[620px] w-full max-w-content flex-col justify-between px-6 pb-24 pt-28 sm:px-10">
-        <div className="hero-watermark" aria-hidden>
-          Mikawa AI School
-        </div>
+      {/* ウォーターマーク */}
+      <div className="hero-watermark absolute bottom-[10%] left-1/2 -translate-x-1/2 text-[clamp(40px,8vw,120px)] font-black text-[rgba(120,180,120,0.15)] whitespace-nowrap pointer-events-none z-[5] tracking-[0.02em]">
+        Mikawa AI School
+      </div>
 
-        <motion.div
-          className="relative z-10 max-w-2xl space-y-6"
+      {/* メインコンテンツ */}
+      <div className="hero-content relative z-10 text-left md:text-left px-6 sm:px-10 py-8 md:py-16 max-w-[1200px] mx-auto w-full">
+        <motion.h1
+          className="hero-title text-[clamp(36px,12vw,96px)] md:text-[clamp(48px,10vw,96px)] font-black text-[#1A1A1A] mb-6 md:mb-8 leading-[1.1] tracking-[-0.02em]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.p className="hero-kicker" variants={staggerItem}>
-            {heroContent.eyebrow}
-          </motion.p>
-          <motion.h1
-            className="hero-heading"
-            variants={staggerItem}
-          >
-            {heroContent.headline}
-          </motion.h1>
-          <motion.p className="hero-lead" variants={staggerItem}>
-            {heroContent.subheading}
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          className="hero-pill-row"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6, ease: 'easeOut' }}
-        >
-          <span className="hero-pill">少人数制ハンズオン 先着受付中</span>
-          <span className="hero-pill hero-pill--outline">公開セミナー 毎月開催</span>
-        </motion.div>
-      </div>
-
-      {showAdmissionBanner ? (
-        <motion.div
-          className="relative z-20 mx-auto -mt-12 w-full max-w-4xl px-6 sm:px-10"
+          {heroContent.headline}
+        </motion.h1>
+        <motion.p
+          className="hero-lead text-[clamp(14px,3.5vw,20px)] md:text-[clamp(16px,2.5vw,20px)] text-[var(--color-text)] leading-[1.8] md:leading-[1.9] max-w-full md:max-w-[700px] font-normal"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.6, ease: 'easeOut' }}
+          transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
         >
-          <div className="flex items-stretch overflow-hidden rounded-2xl bg-white text-slate-900 shadow-[0_25px_50px_rgba(11,16,34,0.28)]">
-            <Link href="#news" className="flex-1 px-6 py-5 sm:flex sm:items-center sm:justify-between">
-              <div className="space-y-1">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">10月イベント開催案内</p>
-                <p className="text-lg font-bold">中小企業経営者向け(10/28)&福祉事業所向け(10/31)セミナー参加登録受付中！</p>
-                <p className="text-sm text-slate-500">気になるテーマがあれば、まずは日程をチェックしてみてください。</p>
+          {heroContent.subheading}
+        </motion.p>
+      </div>
+
+      {/* 出願バナー */}
+      {showAdmissionBanner && (
+        <motion.div
+          className="admission-banner absolute bottom-[60px] md:bottom-[80px] left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] max-w-[800px] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.15)] rounded-2xl md:rounded-3xl z-20 overflow-hidden"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.5, ease: 'easeOut' }}
+        >
+          <div className="banner-link grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-center gap-0 md:gap-6 p-0 bg-white relative">
+            <Link href="#news" className="contents">
+              <div className="banner-date text-sm md:text-base font-bold text-[#333] py-4 px-6 md:py-6 md:px-8 bg-[#F0F0F0] rounded-t-2xl md:rounded-t-none md:rounded-l-3xl text-center md:text-left">
+                10月イベント開催案内
               </div>
-              <span className="mt-4 hidden text-sm font-semibold text-primary sm:inline">詳細を見る →</span>
+              <div className="banner-text text-sm md:text-base font-normal text-[var(--color-text)] py-4 px-6 md:py-6 md:px-4 text-center md:text-left">
+                中小企業経営者向け(10/28)&福祉事業所向け(10/31)セミナー参加登録受付中！
+              </div>
             </Link>
             <button
-              type="button"
-              onClick={() => setShowAdmissionBanner(false)}
-              className="grid h-full place-items-center border-l border-slate-200 px-4 text-slate-400 transition hover:text-slate-700"
-              aria-label="バナーを閉じる"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowAdmissionBanner(false);
+              }}
+              className="banner-close absolute top-2 right-2 md:static p-3 md:p-6 text-[var(--color-text-light)] w-10 h-10 md:w-[50px] md:h-[50px] flex items-center justify-center transition-all hover:bg-black/5 rounded-full md:mr-4 text-xl md:text-2xl"
+              aria-label="閉じる"
             >
               ×
             </button>
           </div>
         </motion.div>
-      ) : null}
+      )}
 
-      <div className="relative z-10 mx-auto mt-12 flex w-full max-w-content flex-col items-center gap-4 pb-16 text-slate-500">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1, duration: 0.6, ease: 'easeOut' }}
-          className="flex flex-col items-center gap-2 text-xs font-semibold tracking-[0.3em] uppercase"
+      {/* スクロールインジケーター */}
+      <motion.div
+        className="scroll-indicator absolute bottom-[150px] md:bottom-[180px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 md:gap-3 text-[var(--color-text)] text-xs md:text-sm font-medium z-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+      >
+        <Link href="#news" className="flex flex-col items-center gap-2">
+          <span className="hidden md:inline">みかわAI学校からのお知らせ</span>
+          <span className="md:hidden text-xs">お知らせ</span>
+          <span className="animate-bounce">↓</span>
+        </Link>
+      </motion.div>
+
+      {/* 赤いCTAバナー */}
+      <motion.div
+        className="red-cta-banner absolute bottom-0 left-0 w-full z-[25]"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5, duration: 0.5, ease: 'easeOut' }}
+      >
+        <Link
+          href="#contact"
+          className="red-cta-link flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 py-4 md:py-8 px-6 md:px-12 bg-gradient-to-r from-[#FF4444] to-[#FF3333] text-white font-bold transition-all hover:from-[#FF3333] hover:to-[#FF2222]"
         >
-          <Link href="#news" className="flex flex-col items-center gap-2">
-            <span>みかわAI学校からのお知らせ</span>
-            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300">
-              ↓
-            </span>
-          </Link>
-        </motion.div>
-        <motion.div
-          className="relative mt-10 w-full max-w-3xl overflow-hidden rounded-2xl bg-gradient-to-r from-[#f1222e] to-[#a6082a] p-[1px]"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.6, ease: 'easeOut' }}
-        >
-          <Link
-            href="#contact"
-            className="flex items-center justify-between gap-4 rounded-[18px] bg-[#cf112d] px-6 py-4 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(207,17,45,0.4)]"
-          >
-            <div className="flex flex-col text-left">
-              <span className="text-xs uppercase tracking-[0.35em] text-white/70">24時間いつでも</span>
-              <span className="text-base font-bold">オンライン個別相談（録画コンテンツ付き）はこちら</span>
-            </div>
-            <span className="text-lg">→</span>
-          </Link>
-        </motion.div>
-      </div>
+          <span className="cta-small-text text-[10px] md:text-xs opacity-95 tracking-[0.05em]">24時間いつでも</span>
+          <span className="cta-main-text flex items-center gap-2 md:gap-3 text-sm md:text-lg font-bold">
+            <span className="text-lg md:text-2xl">▶</span>
+            オンライン個別相談（録画コンテンツ付き）はこちら
+          </span>
+          <span className="cta-arrow text-base md:text-xl animate-[slideRight_1.5s_ease-in-out_infinite]">→</span>
+        </Link>
+      </motion.div>
     </section>
   );
 }

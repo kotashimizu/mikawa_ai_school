@@ -1,0 +1,62 @@
+{
+  "events": [
+    {
+      "id": "event-2025-10-24",
+      "type": "seminar",
+      "category": "セミナー",
+      "date": "2025-10-24",
+      "displayDate": "2025年10月24日（金）",
+      "time": "21:00〜22:30",
+      "title": "【2025年完全版】ゼロから始めるAI論文活用～検索・理解・まとめ・資料作成～",
+      "description": "医療従事者の皆様へ。忙しい臨床の合間に効率よく論文をキャッチアップしたい、英語論文の理解や要約に苦手意識がある、そんな悩みをAI活用で解決します。",
+      "target": "医療従事者",
+      "tags": ["医療", "AI活用", "論文", "オンライン"],
+      "capacity": null,
+      "fee": "無料",
+      "status": "upcoming",
+      "imageUrl": "/images/events/ai-論文活用.png",
+      "link": "https://ichi-company.net/events",
+      "venue": "オンライン"
+    },
+    {
+      "id": "event-2025-10-28",
+      "type": "seminar",
+      "category": "お知らせ",
+      "date": "2025-10-28",
+      "displayDate": "2025年10月28日（火）",
+      "time": "19:30〜21:00",
+      "title": "【中小企業向け】ChatGPT入門セミナー開催のお知らせ",
+      "description": "中小企業経営者・職員を対象とした無料ChatGPT入門セミナーを10月28日（火）に開催いたします。AIって何から始めればいいんだろう？という疑問から、実践的な活用方法まで分かりやすく解説します。",
+      "subtitle": "1企業に1人AI人材を。業務効率化から定着まで伴走支援！",
+      "target": "中小企業経営者・職員",
+      "tags": ["ChatGPT", "AI活用", "中小企業"],
+      "capacity": "30名",
+      "fee": "無料",
+      "status": "upcoming",
+      "imageUrl": "/images/events/chatgpt-seminar.png",
+      "link": "https://ichi-company.net/events",
+      "venue": "オンライン"
+    },
+    {
+      "id": "event-2025-10-31",
+      "type": "seminar",
+      "category": "お知らせ",
+      "date": "2025-10-31",
+      "displayDate": "2025年10月31日（金）",
+      "time": "13:30〜15:00",
+      "title": "【豊川市後援】第2回 福祉事業所向けAI活用勉強会開催のお知らせ",
+      "description": "福祉事業所の管理職・職員を対象とした無料AI活用勉強会を10月31日（金）に開催いたします。計画書・記録作成時間を75%削減するAI活用方法を実践的に学べます。",
+      "target": "福祉事業所の管理職・職員",
+      "tags": ["福祉", "AI活用", "業務効率化"],
+      "capacity": "30名",
+      "fee": "無料",
+      "status": "upcoming",
+      "imageUrl": "/images/events/fukushi-workshop.png",
+      "link": "https://ichi-company.net/events",
+      "venue": "豊川市後援",
+      "sponsor": "豊川市"
+    }
+  ],
+  "lastUpdated": "2025-10-06T00:00:00Z"
+}
+
