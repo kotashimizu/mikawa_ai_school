@@ -142,17 +142,6 @@ export function AboutSection() {
             );
           })}
         </div>
-
-        {/* 大学紹介ボタン */}
-        <div className="text-center mt-16">
-          <a
-            href="#programs"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[var(--color-primary)] text-white rounded-full font-bold text-lg shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)] hover:translate-y-[-2px] transition-all duration-300"
-          >
-            <span>スクール紹介</span>
-            <span className="text-2xl">→</span>
-          </a>
-        </div>
       </div>
     </section>
   );

@@ -39,14 +39,6 @@ export function Footer() {
             <span>イベント一覧</span>
             <span>→</span>
           </NextLink>
-          <NextLink
-            href="/#contact"
-            className="footer-cta-btn flex items-center gap-4 py-3 px-6 bg-[var(--color-primary)] rounded-lg font-bold transition-all hover:bg-[var(--color-primary-dark)] hover:translate-x-1"
-          >
-            <span>📝</span>
-            <span>優先登録</span>
-            <span>→</span>
-          </NextLink>
         </div>
 
         {/* クイックリンク */}

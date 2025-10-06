@@ -43,12 +43,6 @@ export function Header() {
           >
             {noteLink.label} ↗
           </a>
-          <a
-            href="/#contact"
-            className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-6 py-3 rounded-full font-bold text-base transition-all hover:translate-y-[-2px] hover:shadow-lg"
-          >
-            優先登録
-          </a>
         </nav>
 
         {/* モバイル用ハンバーガーメニューボタン（mdまでで表示） */}
@@ -108,16 +102,6 @@ export function Header() {
                   </a>
                 </li>
               </ul>
-
-              <div className="drawer-utilities flex flex-col gap-4">
-                <a
-                  href="/#contact"
-                  className="campus-login-btn inline-block py-3 px-6 bg-[var(--color-primary)] text-white text-center rounded-lg font-bold"
-                  onClick={() => setIsOpen(false)}
-                >
-                  優先登録
-                </a>
-              </div>
             </div>
           </nav>
         </>

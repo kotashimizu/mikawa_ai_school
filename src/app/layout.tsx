@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
-import { FixedCta } from '@/components/layout/FixedCta';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { UIProviders } from '@/components/providers/ui-providers';
@@ -54,7 +53,6 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <FixedCta />
         </UIProviders>
       </body>
     </html>
