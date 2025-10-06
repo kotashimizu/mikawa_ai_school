@@ -69,7 +69,7 @@ export function HeroSection() {
         </motion.p>
       </div>
 
-      {/* 出願バナー */}
+      {/* お知らせバナー */}
       {showAdmissionBanner && (
         <motion.div
           className="admission-banner absolute bottom-[60px] md:bottom-[80px] left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] max-w-[800px] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.15)] rounded-2xl md:rounded-3xl z-20 overflow-hidden"
@@ -77,9 +77,18 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.5, ease: 'easeOut' }}
         >
+          {/* みかわAI学校からのお知らせ */}
+          <div className="banner-header text-center py-3 px-4 border-b border-gray-200 bg-white">
+            <p className="text-xs md:text-sm text-[var(--color-text)] font-medium flex items-center justify-center gap-2">
+              <span>みかわAI学校からのお知らせ</span>
+              <span className="animate-bounce text-base">↓</span>
+            </p>
+          </div>
+
+          {/* バナー本体 */}
           <div className="banner-link grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-center gap-0 md:gap-6 p-0 bg-white relative">
             <Link href="#news" className="contents">
-              <div className="banner-date text-sm md:text-base font-bold text-[#333] py-4 px-6 md:py-6 md:px-8 bg-[#F0F0F0] rounded-t-2xl md:rounded-t-none md:rounded-l-3xl text-center md:text-left">
+              <div className="banner-date text-sm md:text-base font-bold text-[#333] py-4 px-6 md:py-6 md:px-8 bg-[#F0F0F0] rounded-bl-2xl md:rounded-bl-3xl md:rounded-tl-none text-center md:text-left">
                 10月イベント開催案内
               </div>
               <div className="banner-text text-sm md:text-base font-normal text-[var(--color-text)] py-4 px-6 md:py-6 md:px-4 text-center md:text-left">
@@ -99,40 +108,6 @@ export function HeroSection() {
           </div>
         </motion.div>
       )}
-
-      {/* スクロールインジケーター */}
-      <motion.div
-        className="scroll-indicator absolute bottom-[150px] md:bottom-[180px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 md:gap-3 text-[var(--color-text)] text-xs md:text-sm font-medium z-20"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-      >
-        <Link href="#news" className="flex flex-col items-center gap-2">
-          <span className="hidden md:inline">みかわAI学校からのお知らせ</span>
-          <span className="md:hidden text-xs">お知らせ</span>
-          <span className="animate-bounce">↓</span>
-        </Link>
-      </motion.div>
-
-      {/* 赤いCTAバナー */}
-      <motion.div
-        className="red-cta-banner absolute bottom-0 left-0 w-full z-[25]"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.5, ease: 'easeOut' }}
-      >
-        <Link
-          href="#contact"
-          className="red-cta-link flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 py-4 md:py-8 px-6 md:px-12 bg-gradient-to-r from-[#FF4444] to-[#FF3333] text-white font-bold transition-all hover:from-[#FF3333] hover:to-[#FF2222]"
-        >
-          <span className="cta-small-text text-[10px] md:text-xs opacity-95 tracking-[0.05em]">24時間いつでも</span>
-          <span className="cta-main-text flex items-center gap-2 md:gap-3 text-sm md:text-lg font-bold">
-            <span className="text-lg md:text-2xl">▶</span>
-            オンライン個別相談（録画コンテンツ付き）はこちら
-          </span>
-          <span className="cta-arrow text-base md:text-xl animate-[slideRight_1.5s_ease-in-out_infinite]">→</span>
-        </Link>
-      </motion.div>
     </section>
   );
 }
