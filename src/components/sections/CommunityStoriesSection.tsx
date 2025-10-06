@@ -1,5 +1,10 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 // コミュニティプログラムのモック画像
 const communityImages = [
@@ -57,6 +62,9 @@ const communityPrograms = [
 ];
 
 export function CommunityStoriesSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.2 });
+
   return (
     <section className="py-20 md:py-32 bg-[#F5F5F5]" id="community">
       <div className="container mx-auto px-6 sm:px-10 max-w-[1400px]">
@@ -116,10 +124,17 @@ export function CommunityStoriesSection() {
         </div>
 
         {/* プログラムグリッド（3x2） */}
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div ref={ref} className="grid md:grid-cols-3 gap-6 md:gap-8">
           {communityPrograms.map((program, index) => (
-            <div
+            <motion.div
               key={program.id}
+              initial={{ opacity: 0, rotate: -8, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, rotate: 0, scale: 1 } : { opacity: 0, rotate: -8, scale: 0.9 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: [0.34, 1.56, 0.64, 1], // easeOutBack
+              }}
               className="bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300"
             >
               {/* 画像 */}
@@ -152,7 +167,7 @@ export function CommunityStoriesSection() {
                   <span className="text-lg">→</span>
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

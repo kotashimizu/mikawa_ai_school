@@ -1,5 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { learningPrograms } from '@/lib/content/static-content';
 
 // プログラムの画像（モック）
@@ -9,6 +14,9 @@ const programImages = [
 ];
 
 export function LearningStylesSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.2 });
+
   return (
     <section className="py-20 md:py-32 bg-[#F0F1F3]" id="programs">
       <div className="container mx-auto px-6 sm:px-10 max-w-[1400px]">
@@ -51,10 +59,17 @@ export function LearningStylesSection() {
         </div>
 
         {/* プログラムカード */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div ref={ref} className="grid md:grid-cols-2 gap-8">
           {learningPrograms.map((program, index) => (
-            <div
+            <motion.div
               key={program.id}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.2,
+                ease: [0.34, 1.56, 0.64, 1], // easeOutBack
+              }}
               className="bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)]"
             >
               {/* カード画像 */}
@@ -96,7 +111,7 @@ export function LearningStylesSection() {
                   <span className="text-xl">→</span>
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

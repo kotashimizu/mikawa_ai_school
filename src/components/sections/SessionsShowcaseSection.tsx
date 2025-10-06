@@ -1,5 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { recommendedInfo } from '@/lib/content/static-content';
 
 // モック画像（4:3比率のプレースホルダー）
@@ -10,6 +15,9 @@ const mockImages = [
 ];
 
 export function SessionsShowcaseSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.2 });
+
   return (
     <section className="py-20 md:py-32 bg-[#F8F9FA]" id="sessions">
       <div className="container mx-auto px-6 sm:px-10 max-w-[1400px]">
@@ -29,14 +37,23 @@ export function SessionsShowcaseSection() {
         </div>
 
         {/* 背景の角丸グレーボックス */}
-        <div className="bg-[#E8E9EB] rounded-[32px] p-8 md:p-12">
+        <div ref={ref} className="bg-[#E8E9EB] rounded-[32px] p-8 md:p-12">
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {recommendedInfo.map((item, index) => (
-              <Link
+              <motion.div
                 key={item.id}
-                href={item.href}
-                className="group bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 hover:translate-y-[-4px]"
+                initial={{ opacity: 0, y: -60 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -60 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                }}
               >
+                <Link
+                  href={item.href}
+                  className="block group bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 hover:translate-y-[-4px]"
+                >
                 {/* 画像部分（4:3比率） */}
                 <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-blue-100 to-purple-100 overflow-hidden">
                   <Image
@@ -61,7 +78,8 @@ export function SessionsShowcaseSection() {
                     <span className="text-base">→</span>
                   </div>
                 </div>
-              </Link>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>

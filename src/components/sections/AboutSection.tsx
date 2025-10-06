@@ -22,17 +22,18 @@ function FeatureCard({
   delay: number;
 }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  // once: false で上下スクロール時に動作
+  const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: direction }}
-      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: direction }}
+      initial={{ opacity: 0, scale: 0.9, x: direction * 1.5 }}
+      animate={isInView ? { opacity: 1, scale: 1, x: 0 } : { opacity: 0, scale: 0.9, x: direction * 1.5 }}
       transition={{
-        duration: 0.7,
+        duration: 0.8,
         delay: delay,
-        ease: [0.25, 0.46, 0.45, 0.94], // easeOutCubic
+        ease: [0.34, 1.56, 0.64, 1], // easeOutBack（内側に寄る動き）
       }}
       className="feature-card group relative bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300"
     >

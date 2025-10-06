@@ -1,7 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import eventsData from '@/lib/content/events.json';
 import type { Event, NoteArticle } from '@/lib/types/events';
 import { fetchNoteArticles } from '@/lib/services/note-rss';
@@ -20,7 +22,9 @@ interface NewsItem {
 export function NewsSection() {
   const [allNewsItems, setAllNewsItems] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.2 });
+
   useEffect(() => {
     async function loadNews() {
       try {
@@ -93,10 +97,17 @@ export function NewsSection() {
           </div>
         ) : displayItems.length > 0 ? (
           <>
-            <div className="bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] mb-12">
+            <div ref={ref} className="bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] mb-12">
               {displayItems.map((item, index) => (
-                <div
+                <motion.div
                   key={item.id}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40, y: 20 }}
+                  animate={isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: index % 2 === 0 ? -40 : 40, y: 20 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.1,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  }}
                   className={`news-item border-b border-[var(--color-border)] last:border-none ${
                     index % 2 === 1 ? 'bg-[#FAFAFA]' : 'bg-white'
                   }`}
@@ -132,7 +143,7 @@ export function NewsSection() {
                       {item.title}
                     </p>
                   </Link>
-                </div>
+                </motion.div>
               ))}
             </div>
 
