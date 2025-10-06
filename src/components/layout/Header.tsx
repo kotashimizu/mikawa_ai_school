@@ -17,8 +17,8 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="site-header fixed top-0 left-0 w-full bg-white/98 shadow-[var(--shadow-sm)] z-[1000]">
-      <div className="header-container max-w-[var(--container-max)] mx-auto px-4 py-4 flex items-center justify-between">
+    <header className="site-header fixed top-0 left-0 w-full h-[95px] bg-white/98 shadow-[var(--shadow-sm)] z-[1000]">
+      <div className="header-container max-w-[var(--container-max)] mx-auto px-4 h-full flex items-center justify-between">
         <a href="#hero" className="logo flex flex-col gap-1">
           <span className="logo-text-small text-xs text-[var(--color-text-light)] font-normal">三河発のAIスクールなら</span>
           <h1 className="logo-text-large text-2xl font-black text-[var(--color-primary)] tracking-[-0.02em]">みかわAI学校</h1>

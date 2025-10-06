@@ -33,7 +33,7 @@ export function HeroSection() {
   const [showAdmissionBanner, setShowAdmissionBanner] = useState(true);
 
   return (
-    <section className="hero relative min-h-[80vh] md:min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F5F5F5] to-[#E5E5E5] overflow-hidden mt-16 md:mt-20">
+    <section className="hero relative min-h-[80vh] md:min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F5F5F5] to-[#E5E5E5] overflow-hidden mt-[95px]">
       {/* 背景装飾 */}
       <div className="hero-bg absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
         {/* 左上の大きな曲線 */}
