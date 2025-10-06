@@ -23,7 +23,7 @@ export function NewsSection() {
   const [allNewsItems, setAllNewsItems] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const isInView = useInView(ref, { once: false, amount: 0.05 }); // 5%でトリガー
 
   useEffect(() => {
     async function loadNews() {
