@@ -27,12 +27,12 @@ export function ContactSection() {
           <div className="flex-1 space-y-4">
             <div className="rounded-2xl border border-slate-200/70 bg-slate-50/80 p-6 text-sm text-slate-600">
               <p>フォーム準備中のため、メールかSNSでご連絡ください。</p>
-              <p className="mt-3 font-semibold text-slate-800">info@example.jp</p>
+              <p className="mt-3 font-semibold text-slate-800">info@ichi-company.net</p>
               <p className="text-xs text-slate-400">※ 1〜2営業日以内にお返事します。</p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Link
-                href="mailto:info@example.jp"
+                href="mailto:info@ichi-company.net"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white shadow-[0_16px_26px_rgba(44,95,141,0.2)]"
               >
                 メールで問い合わせる

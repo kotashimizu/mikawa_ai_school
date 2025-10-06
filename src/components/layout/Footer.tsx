@@ -20,25 +20,13 @@ export function Footer() {
         <div className="footer-contact">
           <h3 className="text-xl font-bold mb-4">お問い合わせ</h3>
           <NextLink
-            href="mailto:info@example.jp"
+            href="mailto:info@ichi-company.net"
             className="contact-email inline-flex items-center gap-2 text-lg font-bold text-[var(--color-accent)] mb-4"
           >
             <span>✉</span>
-            info@example.jp
+            info@ichi-company.net
           </NextLink>
           <p className="text-sm text-white/70">運営に関するお問い合わせはメールでご連絡ください</p>
-        </div>
-
-        {/* CTAボタン */}
-        <div className="footer-cta flex flex-col gap-4">
-          <NextLink
-            href="/events"
-            className="footer-cta-btn flex items-center gap-4 py-3 px-6 bg-[var(--color-primary)] rounded-lg font-bold transition-all hover:bg-[var(--color-primary-dark)] hover:translate-x-1"
-          >
-            <span>📅</span>
-            <span>イベント一覧</span>
-            <span>→</span>
-          </NextLink>
         </div>
 
         {/* クイックリンク */}
