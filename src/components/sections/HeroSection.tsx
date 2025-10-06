@@ -88,7 +88,7 @@ export function HeroSection() {
           {/* バナー本体 */}
           <div className="banner-link grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-center gap-0 md:gap-6 p-0 bg-white relative">
             <Link href="#news" className="contents">
-              <div className="banner-date text-sm md:text-base font-bold text-[#333] py-4 px-6 md:py-6 md:px-8 bg-[#F0F0F0] rounded-bl-2xl md:rounded-bl-3xl md:rounded-tl-none text-center md:text-left">
+              <div className="banner-date text-sm md:text-base font-bold text-[#333] py-4 px-6 md:py-6 md:px-8 bg-[#F0F0F0] text-center md:text-left">
                 10月イベント開催案内
               </div>
               <div className="banner-text text-sm md:text-base font-normal text-[var(--color-text)] py-4 px-6 md:py-6 md:px-4 text-center md:text-left">
