@@ -1,12 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Button, Card, CardBody, Divider, Accordion, AccordionItem } from '@nextui-org/react';
 import Link from 'next/link';
-import {
-  getFeatureBySlug,
-  getAllFeatureSlugs,
-  type FeatureDetail,
-} from '@/lib/content/features';
+import { getFeatureBySlug, getAllFeatureSlugs } from '@/lib/content/features';
 
 /**
  * 動的メタデータの生成
@@ -96,17 +91,17 @@ export default function FeatureDetailPage({ params }: { params: { slug: string }
         <div className="container mx-auto px-4 max-w-content">
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             {feature.ctas.map((cta, index) => (
-              <Button
+              <Link
                 key={index}
-                color={cta.type === 'primary' ? 'primary' : 'default'}
-                variant={cta.type === 'primary' ? 'solid' : 'bordered'}
-                size="lg"
-                className="font-medium"
-                as={Link}
                 href={cta.url || '#contact-form'}
+                className={`inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-semibold transition-colors ${
+                  cta.type === 'primary'
+                    ? 'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)]'
+                    : 'border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)]/10'
+                }`}
               >
                 {cta.label}
-              </Button>
+              </Link>
             ))}
           </div>
         </div>
@@ -193,17 +188,26 @@ export default function FeatureDetailPage({ params }: { params: { slug: string }
               {/* よくある質問 */}
               {feature.faqs && feature.faqs.length > 0 && (
                 <ContentBlock title="よくある質問">
-                  <Accordion variant="splitted">
+                  <div className="space-y-4">
                     {feature.faqs.map((faq, index) => (
-                      <AccordionItem
+                      <details
                         key={index}
-                        title={faq.question}
-                        className="text-base md:text-lg font-medium"
+                        className="group rounded-2xl border border-gray-200 bg-white p-4 md:p-5 shadow-sm"
                       >
-                        <p className="text-gray-700 leading-relaxed pb-4">{faq.answer}</p>
-                      </AccordionItem>
+                        <summary className="cursor-pointer text-base font-semibold text-gray-800 marker:hidden">
+                          <span className="inline-flex items-center gap-2">
+                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--color-primary)]/10 text-sm font-bold text-[var(--color-primary)]">
+                              Q
+                            </span>
+                            {faq.question}
+                          </span>
+                        </summary>
+                        <div className="mt-3 border-t border-dashed border-gray-200 pt-3 text-gray-700 leading-relaxed">
+                          {faq.answer}
+                        </div>
+                      </details>
                     ))}
-                  </Accordion>
+                  </div>
                 </ContentBlock>
               )}
             </div>
@@ -233,22 +237,17 @@ export default function FeatureDetailPage({ params }: { params: { slug: string }
                 )}
 
                 {/* お問い合わせリンク */}
-                <Card className="bg-accent/10 border-accent/30">
-                  <CardBody className="text-center p-6">
-                    <p className="text-sm text-gray-700 mb-4">
-                      詳しい内容や不明点があればお気軽にお問い合わせください。
-                    </p>
-                    <Button
-                      color="primary"
-                      variant="solid"
-                      className="w-full"
-                      as={Link}
-                      href="/#contact"
-                    >
-                      お問い合わせ
-                    </Button>
-                  </CardBody>
-                </Card>
+                <div className="rounded-2xl border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 p-6 text-center">
+                  <p className="text-sm text-gray-700 mb-4">
+                    詳しい内容や不明点があればお気軽にお問い合わせください。
+                  </p>
+                  <Link
+                    href="/#contact"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
+                  >
+                    お問い合わせ
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -266,19 +265,17 @@ export default function FeatureDetailPage({ params }: { params: { slug: string }
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             {feature.ctas.map((cta, index) => (
-              <Button
+              <Link
                 key={index}
-                color={cta.type === 'primary' ? 'secondary' : 'default'}
-                variant={cta.type === 'primary' ? 'solid' : 'bordered'}
-                size="lg"
-                className={`font-medium ${
-                  cta.type === 'primary' ? 'bg-white text-primary' : 'text-white'
-                }`}
-                as={Link}
                 href={cta.url || '#contact-form'}
+                className={`inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-semibold transition-colors ${
+                  cta.type === 'primary'
+                    ? 'bg-white text-[var(--color-primary)] hover:bg-white/90'
+                    : 'border border-white text-white hover:bg-white/10'
+                }`}
               >
                 {cta.label}
-              </Button>
+              </Link>
             ))}
           </div>
         </div>
@@ -290,9 +287,12 @@ export default function FeatureDetailPage({ params }: { params: { slug: string }
           <h3 className="text-xl md:text-2xl font-bold text-primary mb-6">
             他の特徴も見てみる
           </h3>
-          <Button color="primary" variant="bordered" as={Link} href="/#about">
+          <Link
+            href="/#about"
+            className="inline-flex items-center justify-center rounded-full border border-[var(--color-primary)] px-6 py-3 text-base font-semibold text-[var(--color-primary)] transition-colors hover:bg-[var(--color-primary)]/10"
+          >
             すべての特徴を見る
-          </Button>
+          </Link>
         </div>
       </section>
     </div>
@@ -312,7 +312,7 @@ function ContentBlock({
   return (
     <div>
       <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">{title}</h2>
-      <Divider className="mb-6" />
+      <div className="mb-6 h-[3px] w-12 bg-[var(--color-primary)] rounded-full" />
       {children}
     </div>
   );
@@ -331,15 +331,12 @@ function InfoCard({
   children: React.ReactNode;
 }) {
   return (
-    <Card className="bg-white">
-      <CardBody className="p-6">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="text-2xl">{icon}</span>
-          <h3 className="text-lg font-bold text-primary">{title}</h3>
-        </div>
-        {children}
-      </CardBody>
-    </Card>
+    <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+      <div className="mb-3 flex items-center gap-2">
+        <span className="text-2xl">{icon}</span>
+        <h3 className="text-lg font-bold text-primary">{title}</h3>
+      </div>
+      {children}
+    </div>
   );
 }
-

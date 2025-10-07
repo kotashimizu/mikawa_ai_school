@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Button } from '@nextui-org/react';
 
 /**
  * 特徴ページが見つからない場合の404ページ
@@ -15,16 +14,21 @@ export default function NotFound() {
         <p className="text-lg text-gray-600 mb-8">
           お探しのページは存在しないか、移動した可能性があります。
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button color="primary" size="lg" as={Link} href="/">
+        <div className="flex flex-col justify-center gap-4 sm:flex-row">
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center rounded-full bg-[var(--color-primary)] px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
+          >
             トップページへ戻る
-          </Button>
-          <Button color="default" variant="bordered" size="lg" as={Link} href="/#about">
+          </Link>
+          <Link
+            href="/#about"
+            className="inline-flex items-center justify-center rounded-full border border-[var(--color-primary)] px-6 py-3 text-base font-semibold text-[var(--color-primary)] transition-colors hover:bg-[var(--color-primary)]/10"
+          >
             特徴一覧を見る
-          </Button>
+          </Link>
         </div>
       </div>
     </div>
   );
 }
-
