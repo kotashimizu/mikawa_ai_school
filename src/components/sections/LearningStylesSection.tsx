@@ -3,8 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { learningPrograms } from '@/lib/content/static-content';
 
 // プログラムの画像（モック）
@@ -14,9 +12,6 @@ const programImages = [
 ];
 
 export function LearningStylesSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
-
   return (
     <section className="py-20 md:py-32 bg-[#F0F1F3]" id="programs">
       <div className="container mx-auto px-6 sm:px-10 max-w-[1400px]">
@@ -59,16 +54,13 @@ export function LearningStylesSection() {
         </div>
 
         {/* プログラムカード */}
-        <div ref={ref} className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {learningPrograms.map((program, index) => (
             <motion.div
               key={program.id}
               initial={{ opacity: 0, scale: 0.95, y: 30 }}
-              animate={
-                isInView
-                  ? { opacity: 1, scale: 1, y: 0 }
-                  : { opacity: 0, scale: 0.95, y: 30 }
-              }
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{
                 duration: 0.7,
                 delay: index * 0.2,

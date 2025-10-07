@@ -3,8 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { recommendedInfo } from '@/lib/content/static-content';
 
 // モック画像（4:3比率のプレースホルダー）
@@ -15,9 +13,6 @@ const mockImages = [
 ];
 
 export function SessionsShowcaseSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
-
   return (
     <section className="py-20 md:py-32 bg-[#F8F9FA]" id="sessions">
       <div className="container mx-auto px-6 sm:px-10 max-w-[1400px]">
@@ -37,17 +32,14 @@ export function SessionsShowcaseSection() {
         </div>
 
         {/* 背景の角丸グレーボックス */}
-        <div ref={ref} className="bg-[#E8E9EB] rounded-[32px] p-8 md:p-12">
+        <div className="bg-[#E8E9EB] rounded-[32px] p-8 md:p-12">
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {recommendedInfo.map((item, index) => (
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: -40 }}
-                animate={
-                  isInView
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: -40 }
-                }
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{
                   duration: 0.6,
                   delay: index * 0.15,

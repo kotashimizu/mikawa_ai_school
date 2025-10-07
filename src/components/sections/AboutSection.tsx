@@ -1,8 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 import Link from 'next/link';
 
 // 個別カードコンポーネント
@@ -23,20 +21,14 @@ function FeatureCard({
   direction: number;
   delay: number;
 }) {
-  const ref = useRef(null);
-  // once: true で一度表示したら消えない
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const slideOffset = direction > 0 ? 40 : -40;
 
   return (
     <Link href={`/features/${feature.slug}`}>
       <motion.div
-        ref={ref}
-        initial={{ opacity: 0, scale: 0.95, x: direction * 40 }}
-        animate={
-          isInView
-            ? { opacity: 1, scale: 1, x: 0 }
-            : { opacity: 0, scale: 0.95, x: direction * 40 }
-        }
+        initial={{ opacity: 0, scale: 0.95, x: slideOffset }}
+        whileInView={{ opacity: 1, scale: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.35 }}
         transition={{
           duration: 0.8,
           delay: delay,
@@ -147,7 +139,7 @@ export function AboutSection() {
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {features.map((feature, index) => {
             const isOdd = index % 2 === 0; // 0,2はtrue（01,03）→左から
-            const direction = isOdd ? -100 : 100; // 左から: -100, 右から: 100
+            const direction = isOdd ? -1 : 1; // 左から: -1, 右から: 1
             const delay = index * 0.15; // 波型効果: 0s, 0.15s, 0.3s, 0.45s
 
             return (
