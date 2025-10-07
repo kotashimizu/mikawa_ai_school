@@ -10,6 +10,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       <HeroSection />
+      {/* UNIQUENESSセクション（みかわAI学校の4つの特徴） */}
       <AboutSection />
       <SessionsShowcaseSection />
       <LearningStylesSection />

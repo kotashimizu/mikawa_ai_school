@@ -16,7 +16,7 @@ const mockImages = [
 
 export function SessionsShowcaseSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
     <section className="py-20 md:py-32 bg-[#F8F9FA]" id="sessions">
@@ -42,8 +42,8 @@ export function SessionsShowcaseSection() {
             {recommendedInfo.map((item, index) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: -60 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -60 }}
+                initial={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.6,
                   delay: index * 0.15,

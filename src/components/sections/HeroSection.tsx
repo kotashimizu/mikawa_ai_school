@@ -7,7 +7,7 @@ import { heroContent } from '@/lib/content/static-content';
 import { HeroParticles } from '@/components/sections/HeroParticles';
 
 const containerVariants = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 1, y: 0 },
   visible: {
     opacity: 1,
     y: 0,
@@ -61,7 +61,7 @@ export function HeroSection() {
         </motion.h1>
         <motion.p
           className="hero-lead text-[clamp(14px,3.5vw,20px)] md:text-[clamp(16px,2.5vw,20px)] text-[var(--color-text)] leading-[1.8] md:leading-[1.9] max-w-full md:max-w-[700px] font-normal"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
         >
@@ -73,7 +73,7 @@ export function HeroSection() {
       {showAdmissionBanner && (
         <motion.div
           className="admission-banner absolute bottom-[60px] md:bottom-[80px] left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] max-w-[800px] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.15)] rounded-2xl md:rounded-3xl z-20 overflow-hidden"
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.5, ease: 'easeOut' }}
         >

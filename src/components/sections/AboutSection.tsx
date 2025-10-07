@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Link from 'next/link';
 
 // 個別カードコンポーネント
 function FeatureCard({ 
@@ -17,58 +18,66 @@ function FeatureCard({
     highlight: string;
     image: string;
     bgColor: string;
+    slug: string; // 詳細ページへのリンク用
   };
   direction: number;
   delay: number;
 }) {
   const ref = useRef(null);
-  // once: false で上下スクロール時に動作
-  const isInView = useInView(ref, { once: false, amount: 0.3 });
+  // once: true で一度表示したら消えない
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, scale: 0.9, x: direction * 1.5 }}
-      animate={isInView ? { opacity: 1, scale: 1, x: 0 } : { opacity: 0, scale: 0.9, x: direction * 1.5 }}
-      transition={{
-        duration: 0.8,
-        delay: delay,
-        ease: [0.34, 1.56, 0.64, 1], // easeOutBack（内側に寄る動き）
-      }}
-      className="feature-card group relative bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300"
-    >
-      <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgColor} opacity-50`} />
-      
-      <div className="relative grid md:grid-cols-[200px_1fr] min-h-[280px]">
-        {/* 左側：番号と画像 */}
-        <div className="flex flex-col items-center justify-center p-8 bg-white/50 backdrop-blur-sm">
-          <div className="text-[80px] md:text-[100px] font-black text-[var(--color-primary)]/20 leading-none mb-4">
-            {feature.number}
+    <Link href={`/features/${feature.slug}`}>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 1, scale: 1, x: 0 }}
+        animate={{ opacity: 1, scale: 1, x: 0 }}
+        transition={{
+          duration: 0.8,
+          delay: delay,
+          ease: [0.34, 1.56, 0.64, 1], // easeOutBack（内側に寄る動き）
+        }}
+        className="feature-card group relative bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 cursor-pointer"
+      >
+        <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgColor} opacity-50`} />
+        
+        <div className="relative grid md:grid-cols-[200px_1fr] min-h-[280px]">
+          {/* 左側：番号と画像 */}
+          <div className="flex flex-col items-center justify-center p-8 bg-white/50 backdrop-blur-sm">
+            <div className="text-[80px] md:text-[100px] font-black text-[var(--color-primary)]/20 leading-none mb-4">
+              {feature.number}
+            </div>
+            <div className="text-6xl md:text-7xl opacity-80 group-hover:scale-110 transition-transform duration-300">
+              {feature.image}
+            </div>
           </div>
-          <div className="text-6xl md:text-7xl opacity-80">
-            {feature.image}
-          </div>
-        </div>
 
-        {/* 右側：テキスト */}
-        <div className="flex flex-col justify-center p-8 md:p-10">
-          <h4 className="text-xl md:text-2xl font-bold text-[var(--color-primary)] mb-4">
-            {feature.title}
-          </h4>
-          <p className="text-sm md:text-base text-[var(--color-text)] leading-relaxed">
-            {feature.description}
-            {feature.highlight && (
-              <>
-                <br />
-                <span className="font-bold text-[var(--color-accent)]">
-                  {feature.highlight}
-                </span>
-              </>
-            )}
-          </p>
+          {/* 右側：テキスト */}
+          <div className="flex flex-col justify-center p-8 md:p-10">
+            <h4 className="text-xl md:text-2xl font-bold text-[var(--color-primary)] mb-4">
+              {feature.title}
+            </h4>
+            <p className="text-sm md:text-base text-[var(--color-text)] leading-relaxed">
+              {feature.description}
+              {feature.highlight && (
+                <>
+                  <br />
+                  <span className="font-bold text-[var(--color-accent)]">
+                    {feature.highlight}
+                  </span>
+                </>
+              )}
+            </p>
+            {/* 詳細を見るアイコン */}
+            <div className="mt-4 flex items-center text-[var(--color-primary)] font-medium text-sm group-hover:translate-x-2 transition-transform duration-300">
+              <span>詳しく見る</span>
+              <span className="ml-2 text-xl">→</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 }
 
@@ -76,35 +85,39 @@ export function AboutSection() {
   const features = [
     {
       number: '01',
-      title: 'ロケーションフリー',
-      description: '授業は動画配信だから、スマホがあれば、',
-      highlight: '24時間どこでも大学に。',
-      image: '📱',
+      title: '地域で直接学べる',
+      description: '講師や仲間と対面で学べる少人数ハンズオンで、',
+      highlight: '実務につながるスキルを確実に習得します。',
+      image: '👥',
       bgColor: 'from-blue-50 to-indigo-50',
+      slug: 'in-person',
     },
     {
       number: '02',
-      title: 'タイムフリー',
-      description: '1回約15分の講義動画だから、忙しくてもスキマ時間で学習できる。',
-      highlight: '',
+      title: '時間は柔軟に',
+      description: '日中・夜間・土日など、地域のニーズに合わせた時間帯で開催できます。',
+      highlight: '希望時間はリクエスト可能です。',
       image: '⏰',
       bgColor: 'from-amber-50 to-yellow-50',
+      slug: 'flexible-time',
     },
     {
       number: '03',
-      title: '学びやすい学費設定',
-      description: '国立大学と比べてほぼ同じ安い費用設定。',
-      highlight: '初年度学費は約29万円から。',
-      image: '💰',
+      title: 'すぐ使える（実務直結）',
+      description: '当日配布のテンプレやワークで、',
+      highlight: '明日から使えるAIの実践スキルを持ち帰れます。',
+      image: '💼',
       bgColor: 'from-slate-50 to-gray-50',
+      slug: 'practical',
     },
     {
       number: '04',
-      title: '選べる入学形態',
-      description: '専門学校・短大・大学等を卒業していれば、',
-      highlight: '2年次・3年次編入学も可能。',
-      image: '📚',
+      title: '気軽に始められる',
+      description: '無料枠や初心者向けの体験回で、',
+      highlight: '初めてでも安心して始められます。',
+      image: '🚀',
       bgColor: 'from-teal-50 to-cyan-50',
+      slug: 'easy-start',
     },
   ];
 
@@ -119,10 +132,10 @@ export function AboutSection() {
           <p className="text-sm md:text-base text-[var(--color-text-light)] mb-8">みかわAI学校の特長</p>
           
           <h3 className="text-2xl md:text-4xl font-bold text-[var(--color-primary)] mb-6">
-            すべての人に学びを開放する
+            地域で学べる、実務で使える、誰でも始められる
           </h3>
           <p className="text-base md:text-lg text-[var(--color-text)] leading-relaxed max-w-[700px] mx-auto">
-            みかわAI学校では、「すべての人に、学びを開放する」という理念のもと、誰もが続けられる仕組みを整えています
+            みかわAI学校では、あなたのニーズに合わせた学び方を提供します。対面での実践的なハンズオンから、柔軟な時間設定、すぐに使える実務テンプレまで、初めての方でも安心して学べる環境を整えています。
           </p>
         </div>
 

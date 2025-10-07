@@ -15,7 +15,7 @@ const programImages = [
 
 export function LearningStylesSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
     <section className="py-20 md:py-32 bg-[#F0F1F3]" id="programs">
@@ -63,8 +63,8 @@ export function LearningStylesSection() {
           {learningPrograms.map((program, index) => (
             <motion.div
               key={program.id}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 1, scale: 1 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{
                 duration: 0.7,
                 delay: index * 0.2,

@@ -1,5 +1,6 @@
 export const primaryNavigation = [
   { label: 'トップ', href: '/' },
+  { label: '特徴', href: '/#about' },
   { label: 'イベント', href: '/events' },
   { label: '学長紹介', href: '/principal' },
   { label: 'お知らせ', href: '/news' },
@@ -7,6 +8,7 @@ export const primaryNavigation = [
 ];
 
 export const supportLinks = [
+  { label: 'みかわAI学校の特徴', href: '/#about' },
   { label: 'イベント一覧', href: '/events' },
   { label: 'お知らせ一覧', href: '/news' },
   { label: '学長紹介', href: '/principal' },

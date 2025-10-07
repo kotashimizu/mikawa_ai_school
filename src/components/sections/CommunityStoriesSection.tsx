@@ -63,7 +63,7 @@ const communityPrograms = [
 
 export function CommunityStoriesSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
     <section className="py-20 md:py-32 bg-[#F5F5F5]" id="community">
@@ -128,8 +128,8 @@ export function CommunityStoriesSection() {
           {communityPrograms.map((program, index) => (
             <motion.div
               key={program.id}
-              initial={{ opacity: 0, rotate: -8, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, rotate: 0, scale: 1 } : { opacity: 0, rotate: -8, scale: 0.9 }}
+              initial={{ opacity: 1, rotate: 0, scale: 1 }}
+              animate={{ opacity: 1, rotate: 0, scale: 1 }}
               transition={{
                 duration: 0.6,
                 delay: index * 0.1,

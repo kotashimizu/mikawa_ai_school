@@ -23,7 +23,7 @@ export function NewsSection() {
   const [allNewsItems, setAllNewsItems] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.05 }); // 5%でトリガー
+  const isInView = useInView(ref, { once: true, amount: 0.05 }); // 5%でトリガー
 
   useEffect(() => {
     async function loadNews() {
@@ -101,8 +101,8 @@ export function NewsSection() {
               {displayItems.map((item, index) => (
                 <motion.div
                   key={item.id}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40, y: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: index % 2 === 0 ? -40 : 40, y: 20 }}
+                  initial={{ opacity: 1, x: 0, y: 0 }}
+                  animate={{ opacity: 1, x: 0, y: 0 }}
                   transition={{
                     duration: 0.5,
                     delay: index * 0.1,
@@ -116,16 +116,16 @@ export function NewsSection() {
                     href={item.link}
                     target={item.type === 'note' ? '_blank' : undefined}
                     rel={item.type === 'note' ? 'noopener noreferrer' : undefined}
-                    className="grid grid-cols-1 md:grid-cols-[auto_auto_1fr] gap-4 items-center p-6 transition-colors hover:bg-[var(--color-primary)]/5"
+                    className="block md:grid md:grid-cols-[140px_auto_1fr] gap-4 md:items-center p-6 transition-colors hover:bg-[var(--color-primary)]/5"
                   >
                     {/* 日付 */}
-                    <time className="text-sm text-[var(--color-text-light)] font-medium min-w-[140px]">
+                    <time className="block text-sm text-[var(--color-text-light)] font-medium mb-2 md:mb-0">
                       {item.displayDate.replace('年', '.').replace('月', '.').replace('日', '').replace(/（.）/, '')}
                     </time>
 
                     {/* カテゴリバッジ */}
                     <span
-                      className={`inline-block px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${
+                      className={`inline-block px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2 md:mb-0 ${
                         item.category === 'セミナー'
                           ? 'bg-[var(--color-accent)] text-white'
                           : item.category === 'お知らせ'
