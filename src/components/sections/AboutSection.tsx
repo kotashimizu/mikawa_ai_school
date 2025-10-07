@@ -31,8 +31,12 @@ function FeatureCard({
     <Link href={`/features/${feature.slug}`}>
       <motion.div
         ref={ref}
-        initial={{ opacity: 1, scale: 1, x: 0 }}
-        animate={{ opacity: 1, scale: 1, x: 0 }}
+        initial={{ opacity: 0, scale: 0.95, x: direction * 40 }}
+        animate={
+          isInView
+            ? { opacity: 1, scale: 1, x: 0 }
+            : { opacity: 0, scale: 0.95, x: direction * 40 }
+        }
         transition={{
           duration: 0.8,
           delay: delay,

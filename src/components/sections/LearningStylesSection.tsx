@@ -63,8 +63,12 @@ export function LearningStylesSection() {
           {learningPrograms.map((program, index) => (
             <motion.div
               key={program.id}
-              initial={{ opacity: 1, scale: 1 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              animate={
+                isInView
+                  ? { opacity: 1, scale: 1, y: 0 }
+                  : { opacity: 0, scale: 0.95, y: 30 }
+              }
               transition={{
                 duration: 0.7,
                 delay: index * 0.2,

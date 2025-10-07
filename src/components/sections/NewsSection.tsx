@@ -101,8 +101,12 @@ export function NewsSection() {
               {displayItems.map((item, index) => (
                 <motion.div
                   key={item.id}
-                  initial={{ opacity: 1, x: 0, y: 0 }}
-                  animate={{ opacity: 1, x: 0, y: 0 }}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40, y: 20 }}
+                  animate={
+                    isInView
+                      ? { opacity: 1, x: 0, y: 0 }
+                      : { opacity: 0, x: index % 2 === 0 ? -40 : 40, y: 20 }
+                  }
                   transition={{
                     duration: 0.5,
                     delay: index * 0.1,
