@@ -6,7 +6,7 @@ import { supportLinks } from '@/lib/constants/navigation';
 export function Footer() {
   return (
     <footer className="site-footer bg-[var(--color-bg-dark)] text-white py-12 md:py-20 px-0">
-      <div className="footer-top grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 max-w-[var(--container-max)] mx-auto mb-12 md:mb-16 px-6">
+      <div className="footer-top grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-[var(--container-max)] mx-auto mb-12 md:mb-16 px-6">
         {/* TOPへ戻るボタン */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -47,7 +47,7 @@ export function Footer() {
       </div>
 
       {/* フッターナビゲーション */}
-      <div className="footer-nav grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-[var(--container-max)] mx-auto mb-8 md:mb-12 px-6 pt-8 md:pt-12 border-t border-white/20">
+      <div className="footer-nav grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-[var(--container-max)] mx-auto mb-8 md:mb-12 px-6 pt-8 md:pt-12 border-t border-white/20">
         <div className="footer-nav-column">
           <h4 className="text-lg font-bold mb-4 text-[var(--color-secondary)]">スクール情報</h4>
           <ul className="flex flex-col gap-2">

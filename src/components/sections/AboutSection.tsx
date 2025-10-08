@@ -38,20 +38,20 @@ function FeatureCard({
       >
         <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgColor} opacity-50`} />
         
-        <div className="relative grid md:grid-cols-[200px_1fr] min-h-[280px]">
+        <div className="relative grid min-h-[260px] md:min-h-[280px] md:grid-cols-[minmax(140px,200px)_1fr]">
           {/* 左側：番号と画像 */}
-          <div className="flex flex-col items-center justify-center p-8 bg-white/50 backdrop-blur-sm">
-            <div className="text-[80px] md:text-[100px] font-black text-[var(--color-primary)]/20 leading-none mb-4">
+          <div className="flex flex-col items-center justify-center gap-4 p-8 bg-white/50 backdrop-blur-sm">
+            <div className="text-[64px] md:text-[100px] font-black text-[var(--color-primary)]/20 leading-none">
               {feature.number}
             </div>
-            <div className="text-6xl md:text-7xl opacity-80 group-hover:scale-110 transition-transform duration-300">
+            <div className="text-5xl md:text-7xl opacity-80 transition-transform duration-300 group-hover:scale-110">
               {feature.image}
             </div>
           </div>
 
           {/* 右側：テキスト */}
-          <div className="flex flex-col justify-center p-8 md:p-10">
-            <h4 className="text-xl md:text-2xl font-bold text-[var(--color-primary)] mb-4">
+          <div className="flex flex-col justify-center p-6 md:p-10">
+            <h4 className="text-lg md:text-2xl font-bold text-[var(--color-primary)] mb-3 md:mb-4">
               {feature.title}
             </h4>
             <p className="text-sm md:text-base text-[var(--color-text)] leading-relaxed">

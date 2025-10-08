@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function PrincipalPage() {
   return (
-    <div className="bg-white py-24">
+    <div className="bg-white py-16 sm:py-24">
       <div className="mx-auto flex w-full max-w-screen-lg flex-col gap-12 px-6 sm:px-10">
         <header className="space-y-4 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Principal</p>

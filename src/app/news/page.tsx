@@ -75,7 +75,7 @@ export default function NewsPage() {
   const categories = ['all', ...Array.from(new Set(allNewsItems.map((item) => item.category)))];
 
   return (
-    <div className="bg-white py-24">
+    <div className="bg-white py-16 sm:py-24">
       <div className="container mx-auto px-6 sm:px-10 max-w-[1200px]">
         {/* ヘッダー */}
         <header className="text-center mb-16">
@@ -179,4 +179,3 @@ export default function NewsPage() {
     </div>
   );
 }
-

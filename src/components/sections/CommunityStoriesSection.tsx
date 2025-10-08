@@ -79,17 +79,17 @@ export function CommunityStoriesSection() {
         </div>
 
         {/* 上部：左側説明 + 右側画像 */}
-        <div className="bg-white rounded-3xl p-8 md:p-12 mb-12 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
-          <div className="grid md:grid-cols-[1fr_400px] gap-8 md:gap-12">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-12 mb-12 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1fr_400px] md:gap-10 lg:gap-12">
             {/* 左側：縦線付きボックス */}
-            <div className="border-l-4 border-[var(--color-accent)] pl-6">
-              <h3 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)] mb-4">
+            <div className="border-l-4 border-[var(--color-accent)] pl-5 md:pl-6">
+              <h3 className="text-xl md:text-3xl font-bold text-[var(--color-primary)] mb-3 md:mb-4">
                 みんなで分かち合う学びの場
               </h3>
-              <p className="text-sm md:text-base text-[var(--color-text-light)] mb-4">
+              <p className="text-xs md:text-base text-[var(--color-text-light)] mb-3 md:mb-4">
                 取得できる学び：実践的AI活用スキル
               </p>
-              <p className="text-base md:text-lg text-[var(--color-text)] leading-relaxed mb-6">
+              <p className="text-sm md:text-lg text-[var(--color-text)] leading-relaxed mb-6">
                 勉強会で生まれた「やってみた」を共有したり、気軽に相談し合えるのも少人数ならではの魅力です。三河地域のみなさんと一緒に、実務で使えるAIスキルを身につけていきましょう。
               </p>
               <Link
@@ -119,7 +119,7 @@ export function CommunityStoriesSection() {
         </div>
 
         {/* プログラムグリッド（3x2） */}
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8">
           {communityPrograms.map((program, index) => (
             <motion.div
               key={program.id}
@@ -155,13 +155,6 @@ export function CommunityStoriesSection() {
                 <p className="text-sm text-[var(--color-text)] leading-relaxed mb-4">
                   {program.description}
                 </p>
-                <Link
-                  href={program.href}
-                  className="inline-flex items-center justify-center gap-2 w-full py-3 px-4 bg-[#6B7280] hover:bg-[#4B5563] text-white rounded-full font-bold text-sm transition-all duration-300"
-                >
-                  <span>詳細を見る</span>
-                  <span className="text-lg">→</span>
-                </Link>
               </div>
             </motion.div>
           ))}

@@ -17,7 +17,7 @@ export function FixedCta() {
 
   return (
     <div
-      className={`fixed-cta fixed bottom-8 right-6 z-[999] transition-all duration-300 ${
+      className={`fixed-cta fixed bottom-6 right-4 md:bottom-8 md:right-6 hidden md:block z-[999] transition-all duration-300 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5 pointer-events-none'
       }`}
     >

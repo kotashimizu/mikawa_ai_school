@@ -23,8 +23,8 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="space-y-10 lg:flex lg:gap-10">
-          <div className="flex-1 space-y-4">
+        <div className="space-y-8 md:grid md:grid-cols-2 md:gap-6 md:space-y-0 lg:gap-10">
+          <div className="flex flex-col space-y-4">
             <div className="rounded-2xl border border-slate-200/70 bg-slate-50/80 p-6 text-sm text-slate-600">
               <p>フォーム準備中のため、メールかSNSでご連絡ください。</p>
               <p className="mt-3 font-semibold text-slate-800">info@ichi-company.net</p>
@@ -47,7 +47,7 @@ export function ContactSection() {
               </Link>
             </div>
           </div>
-          <div className="flex-1 rounded-2xl bg-gradient-to-br from-primary/10 via-white to-slate-50 p-8 text-sm text-slate-600 shadow-[0_20px_60px_rgba(15,25,55,0.08)]">
+          <div className="rounded-2xl bg-gradient-to-br from-primary/10 via-white to-slate-50 p-6 text-sm text-slate-600 shadow-[0_20px_60px_rgba(15,25,55,0.08)] sm:p-8">
             <ul className="space-y-4">
               <li>
                 <span className="font-semibold text-slate-900">STEP 1.</span> 希望するプログラムと参加人数をお知らせください。

@@ -183,6 +183,48 @@ section {
 }
 
 /* ======================
+   水平方向スライダー
+   ====================== */
+.slider-track {
+  display: flex;
+  gap: var(--space-lg);
+  overflow-x: auto;
+  padding-bottom: var(--space-sm);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(44, 95, 141, 0.4) transparent;
+}
+
+.slider-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.slider-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.slider-track::-webkit-scrollbar-thumb {
+  background: rgba(44, 95, 141, 0.3);
+  border-radius: var(--radius-full);
+}
+
+.slider-item {
+  flex: 0 0 min(280px, 75vw);
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .slider-track {
+    gap: var(--space-xl);
+    padding-bottom: 0;
+  }
+
+  .slider-item {
+    flex-basis: min(320px, 40vw);
+  }
+}
+
+/* ======================
    レスポンシブ調整
    ====================== */
 @media (max-width: 768px) {

@@ -32,8 +32,8 @@ export function SessionsShowcaseSection() {
         </div>
 
         {/* 背景の角丸グレーボックス */}
-        <div className="bg-[#E8E9EB] rounded-[32px] p-8 md:p-12">
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div className="bg-[#E8E9EB] rounded-[32px] p-6 sm:p-8 md:p-12">
+          <div className="grid gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
             {recommendedInfo.map((item, index) => (
               <motion.div
                 key={item.id}
@@ -48,7 +48,7 @@ export function SessionsShowcaseSection() {
               >
                 <Link
                   href={item.href}
-                  className="block group bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-300 hover:translate-y-[-4px]"
+                  className="group block rounded-2xl bg-white overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
                 >
                 {/* 画像部分（4:3比率） */}
                 <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-blue-100 to-purple-100 overflow-hidden">

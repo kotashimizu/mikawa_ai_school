@@ -31,18 +31,18 @@ export function LearningStylesSection() {
         </div>
 
         {/* コンテンツ部分 - 左側にテキスト、右側に人物画像 */}
-        <div className="grid md:grid-cols-[1fr_400px] gap-12 mb-16">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1fr_400px] lg:gap-12 mb-16">
           <div className="flex flex-col justify-center">
-            <h4 className="text-xl md:text-2xl font-bold text-[var(--color-primary)] mb-4">
+            <h4 className="text-lg md:text-2xl font-bold text-[var(--color-primary)] mb-3 md:mb-4">
               選べるふたつの学び方
             </h4>
-            <p className="text-base md:text-lg text-[var(--color-text)] leading-relaxed">
+            <p className="text-base text-[var(--color-text)] leading-relaxed md:text-lg">
               みんなで集まって試す日も、画面越しにゆったり学ぶ日も。都合に合わせて参加できるプログラムをご用意しています。
             </p>
           </div>
 
           {/* 右側の人物画像 */}
-          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.15)]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.15)]">
             <Image
               src="/images/principal-kota.png"
               alt="志水康太（学長）"
@@ -54,7 +54,7 @@ export function LearningStylesSection() {
         </div>
 
         {/* プログラムカード */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
           {learningPrograms.map((program, index) => (
             <motion.div
               key={program.id}
@@ -80,11 +80,11 @@ export function LearningStylesSection() {
               </div>
 
               {/* カード内容 */}
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-[var(--color-primary)] mb-4 border-b-2 border-[var(--color-primary)] pb-3">
+              <div className="p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-primary)] mb-4 border-b-2 border-[var(--color-primary)] pb-3">
                   {program.title}
                 </h3>
-                <p className="text-base text-[var(--color-text)] leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-[var(--color-text)] leading-relaxed mb-6">
                   {program.body}
                 </p>
 

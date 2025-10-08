@@ -33,7 +33,7 @@ export function HeroSection() {
   const [showAdmissionBanner, setShowAdmissionBanner] = useState(true);
 
   return (
-    <section className="hero relative min-h-[80vh] md:min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F5F5F5] to-[#E5E5E5] overflow-hidden mt-[95px]">
+    <section className="hero relative mt-[72px] flex min-h-[80vh] flex-col justify-between overflow-hidden bg-gradient-to-br from-[#F5F5F5] to-[#E5E5E5] pb-24 md:mt-[95px] md:min-h-screen md:items-center md:justify-center md:pb-40">
       {/* 背景装飾 */}
       <div className="hero-bg absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
         {/* 左上の大きな曲線 */}
@@ -45,34 +45,58 @@ export function HeroSection() {
       </div>
 
       {/* ウォーターマーク */}
-      <div className="hero-watermark absolute bottom-[10%] left-1/2 -translate-x-1/2 text-[clamp(40px,8vw,120px)] font-black text-[rgba(120,180,120,0.15)] whitespace-nowrap pointer-events-none z-[5] tracking-[0.02em]">
+      <div className="hero-watermark pointer-events-none absolute bottom-[12%] left-1/2 hidden -translate-x-1/2 text-[clamp(56px,8vw,120px)] font-black tracking-[0.02em] text-[rgba(120,180,120,0.15)] whitespace-nowrap lg:block">
         Mikawa AI School
       </div>
 
       {/* メインコンテンツ */}
-      <div className="hero-content relative z-10 text-left md:text-left px-6 sm:px-10 py-8 md:py-16 max-w-[1200px] mx-auto w-full">
+      <div className="hero-content relative z-10 w-full max-w-[1200px] flex-1 px-6 pt-12 pb-6 text-center sm:px-10 md:flex-none md:py-16 md:text-left">
         <motion.h1
-          className="hero-title text-[clamp(36px,12vw,96px)] md:text-[clamp(48px,10vw,96px)] font-black text-[#1A1A1A] mb-6 md:mb-8 leading-[1.1] tracking-[-0.02em]"
+          className="hero-title mb-4 text-[clamp(25px,7vw,72px)] font-black text-[#1A1A1A] leading-[1.15] tracking-[-0.02em] md:mb-6 md:text-[55px]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {heroContent.headline}
+          <span className="block space-y-1">
+            {heroContent.headline.lines.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
+          </span>
         </motion.h1>
         <motion.p
-          className="hero-lead text-[clamp(14px,3.5vw,20px)] md:text-[clamp(16px,2.5vw,20px)] text-[var(--color-text)] leading-[1.8] md:leading-[1.9] max-w-full md:max-w-[700px] font-normal"
+          className="hero-lead mx-auto max-w-[720px] text-[clamp(15px,4vw,19px)] text-[var(--color-text)] leading-[1.8] font-normal md:mx-0 md:text-lg md:leading-[1.7]"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
         >
-          {heroContent.subheading}
+          <span className="block space-y-2 md:hidden">
+            {heroContent.subheading.mobile.map(([first, second]) => {
+              const key = `${first}-${second}`;
+              return (
+                <span key={key} className="block">
+                  {first}
+                  <br />
+                  {second}
+                </span>
+              );
+            })}
+          </span>
+          <span className="hidden space-y-2 md:block">
+            {heroContent.subheading.desktop.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
+          </span>
         </motion.p>
       </div>
 
       {/* お知らせバナー */}
       {showAdmissionBanner && (
         <motion.div
-          className="admission-banner absolute bottom-[60px] md:bottom-[80px] left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] max-w-[800px] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.15)] rounded-2xl md:rounded-3xl z-20 overflow-hidden"
+          className="admission-banner relative mx-auto w-full max-w-[640px] rounded-2xl bg-white shadow-[0_4px_24px_rgba(0,0,0,0.15)] md:absolute md:bottom-[72px] md:left-1/2 md:mt-0 md:w-[90%] md:max-w-[800px] md:-translate-x-1/2 md:rounded-3xl md:px-0 md:py-0 md:z-20"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.5, ease: 'easeOut' }}
@@ -86,12 +110,12 @@ export function HeroSection() {
           </div>
 
           {/* バナー本体 */}
-          <div className="banner-link grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-center gap-0 md:gap-6 p-0 bg-white relative">
+          <div className="banner-link relative grid grid-cols-1 items-center gap-0 bg-white p-0 md:grid-cols-[auto_1fr_auto] md:gap-6">
             <Link href="#news" className="contents">
-              <div className="banner-date text-sm md:text-base font-bold text-[#333] py-4 px-6 md:py-6 md:px-8 bg-[#F0F0F0] text-center md:text-left">
+              <div className="banner-date bg-[#F0F0F0] px-6 py-4 text-center text-sm font-bold text-[#333] md:px-8 md:py-6 md:text-left md:text-base">
                 10月イベント開催案内
               </div>
-              <div className="banner-text text-sm md:text-base font-normal text-[var(--color-text)] py-4 px-6 md:py-6 md:px-4 text-center md:text-left">
+              <div className="banner-text px-6 py-4 text-center text-sm font-normal text-[var(--color-text)] md:px-4 md:py-6 md:text-left md:text-base">
                 中小企業経営者向け(10/28)&福祉事業所向け(10/31)セミナー参加登録受付中！
               </div>
             </Link>
@@ -100,7 +124,7 @@ export function HeroSection() {
                 e.preventDefault();
                 setShowAdmissionBanner(false);
               }}
-              className="banner-close absolute top-2 right-2 md:static p-3 md:p-6 text-[var(--color-text-light)] w-10 h-10 md:w-[50px] md:h-[50px] flex items-center justify-center transition-all hover:bg-black/5 rounded-full md:mr-4 text-xl md:text-2xl"
+              className="banner-close absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full p-2 text-lg text-[var(--color-text-light)] transition-all hover:bg-black/5 md:static md:h-[50px] md:w-[50px] md:p-6 md:text-2xl md:mr-4"
               aria-label="閉じる"
             >
               ×
