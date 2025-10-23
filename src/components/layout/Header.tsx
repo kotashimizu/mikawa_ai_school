@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
 const navigationItems = [
@@ -31,9 +32,20 @@ export function Header() {
   return (
     <header className="site-header fixed top-0 left-0 w-full h-[72px] md:h-[95px] bg-white shadow-[var(--shadow-sm)] z-[1000]">
       <div className="header-container max-w-[var(--container-max)] mx-auto px-4 sm:px-6 h-full flex items-center justify-between">
-        <a href="/" className="logo flex flex-col gap-1">
-          <span className="logo-text-small text-[10px] sm:text-xs text-[var(--color-text-light)] font-normal">三河発のAIスクールなら</span>
-          <h1 className="logo-text-large text-xl sm:text-2xl font-black text-[var(--color-primary)] tracking-[-0.02em]">みかわAI学校</h1>
+        <a href="/" className="logo flex items-center gap-3">
+          <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0">
+            <Image
+              src="/images/mikawa_logo.png"
+              alt="みかわAI学校"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+          <div className="flex flex-col gap-0.5">
+            <span className="logo-text-small text-[10px] sm:text-xs text-[var(--color-text-light)] font-normal leading-tight">三河発のAIスクールなら</span>
+            <h1 className="logo-text-large text-lg sm:text-xl font-black text-[var(--color-primary)] tracking-[-0.02em] leading-tight">みかわAI学校</h1>
+          </div>
         </a>
 
         {/* PC用ナビゲーション（md以上で表示） */}
