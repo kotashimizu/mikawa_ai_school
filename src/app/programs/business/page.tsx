@@ -360,9 +360,6 @@ export default function BusinessCoursePage() {
                 <p className="text-3xl md:text-4xl font-black text-[var(--color-primary)]">
                   {businessCourseDetail.pricing.recurring}
                 </p>
-                <p className="text-base text-[var(--color-text)] mt-2">
-                  月額プラン：{businessCourseDetail.pricing.monthly}
-                </p>
               </div>
             </div>
             <div className="border-t pt-6 space-y-2">
