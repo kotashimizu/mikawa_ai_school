@@ -36,12 +36,42 @@ export default function PrincipalPage() {
         <section className="grid gap-6 lg:grid-cols-[2fr_1fr] lg:items-start">
           <article className="space-y-6 rounded-3xl border border-slate-200/70 bg-slate-50/70 p-8 text-sm text-slate-600">
             <div className="space-y-2">
-              <h2 className="text-xl font-semibold text-slate-900">これまでの歩み</h2>
-              <p>{principalProfile.story}</p>
+              <h2 className="text-xl font-semibold text-slate-900">経歴・背景</h2>
+              <p className="leading-relaxed">{principalProfile.introduction}</p>
             </div>
             <div className="space-y-2">
-              <h2 className="text-xl font-semibold text-slate-900">いま大切にしていること</h2>
-              <p>{principalProfile.message}</p>
+              <h2 className="text-xl font-semibold text-slate-900">これまでの歩み</h2>
+              <p className="leading-relaxed">{principalProfile.story}</p>
+            </div>
+            <div className="space-y-3">
+              <h2 className="text-xl font-semibold text-slate-900">専門分野</h2>
+              <ul className="space-y-2">
+                {principalProfile.expertise.map((item, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent)] mt-1">✓</span>
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="space-y-2">
+              <h2 className="text-xl font-semibold text-slate-900">みかわAI学校での役割</h2>
+              <p className="leading-relaxed">{principalProfile.role}</p>
+            </div>
+            <div className="space-y-3">
+              <h2 className="text-xl font-semibold text-slate-900">{principalProfile.philosophy.title}</h2>
+              <ul className="space-y-2">
+                {principalProfile.philosophy.points.map((point, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent)] mt-1">・</span>
+                    <span className="leading-relaxed">{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="space-y-2">
+              <h2 className="text-xl font-semibold text-slate-900">メッセージ</h2>
+              <p className="leading-relaxed italic">「{principalProfile.message}」</p>
             </div>
           </article>
           <aside className="space-y-6 rounded-3xl border border-slate-200/70 bg-white p-8 text-sm text-slate-600 shadow-[0_12px_24px_rgba(16,24,40,0.08)]">
