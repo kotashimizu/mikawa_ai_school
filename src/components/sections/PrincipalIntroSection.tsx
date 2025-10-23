@@ -60,80 +60,11 @@ export function PrincipalIntroSection() {
                 </p>
               </div>
 
-              {/* 経歴・背景 */}
+              {/* 経歴ハイライト */}
               <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 border border-slate-100">
-                <h5 className="text-lg font-bold text-[var(--color-primary)] mb-3">経歴・背景</h5>
-                <p className="text-sm text-[var(--color-text)] leading-relaxed mb-4">
-                  {principalProfile.story}
-                </p>
-                <div className="mt-4 pt-4 border-t border-slate-200">
-                  <h6 className="text-sm font-bold text-[var(--color-primary)] mb-2">専門分野</h6>
-                  <ul className="space-y-2">
-                    {principalProfile.expertise.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm text-[var(--color-text)]">
-                        <span className="text-[var(--color-accent)] mt-1">✓</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* みかわAI学校での役割 */}
-              <div className="bg-gradient-to-br from-teal-50 to-white rounded-2xl p-6 border border-teal-100">
-                <h5 className="text-lg font-bold text-[var(--color-primary)] mb-3">みかわAI学校での役割</h5>
                 <p className="text-sm text-[var(--color-text)] leading-relaxed">
-                  {principalProfile.role}
+                  2023年、「AIの民主化」を理念に合同会社ICHIを設立。延べ50名以上の医療従事者・事業者にAI活用を指導し、参加者満足度100%を実現。
                 </p>
-              </div>
-
-              {/* 教育方針 */}
-              <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100">
-                <h5 className="text-lg font-bold text-[var(--color-primary)] mb-3">
-                  {principalProfile.philosophy.title}
-                </h5>
-                <ul className="space-y-2">
-                  {principalProfile.philosophy.points.map((point, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm text-[var(--color-text)]">
-                      <span className="text-[var(--color-accent)] mt-1">・</span>
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* メッセージ */}
-              <div className="bg-gradient-to-br from-amber-50 to-white rounded-2xl p-6 border border-amber-100">
-                <h5 className="text-lg font-bold text-[var(--color-primary)] mb-3">メッセージ</h5>
-                <p className="text-sm text-[var(--color-text)] leading-relaxed italic">
-                  「{principalProfile.message}」
-                </p>
-              </div>
-
-              {/* 興味・関心 */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <h5 className="text-base font-bold text-[var(--color-primary)] mb-2">趣味</h5>
-                  <ul className="space-y-1">
-                    {principalProfile.hobbies.map((hobby, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm text-[var(--color-text)]">
-                        <span className="text-[var(--color-accent)] mt-1">・</span>
-                        <span>{hobby}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h5 className="text-base font-bold text-[var(--color-primary)] mb-2">好きなテーマ</h5>
-                  <ul className="space-y-1">
-                    {principalProfile.favoriteTopics.map((topic, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm text-[var(--color-text)]">
-                        <span className="text-[var(--color-accent)] mt-1">・</span>
-                        <span>{topic}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
 
               {/* 詳細リンク */}
