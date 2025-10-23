@@ -44,6 +44,10 @@ export interface Event {
   venue?: string;
   /** 主催・後援 */
   sponsor?: string;
+  /** 持ち物・準備物 */
+  requirements?: string;
+  /** セミナーで学べること */
+  learnings?: string[];
 }
 
 export interface EventsData {

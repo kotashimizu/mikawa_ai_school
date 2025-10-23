@@ -52,7 +52,7 @@ export function HeroSection() {
       {/* メインコンテンツ */}
       <div className="hero-content relative z-10 w-full max-w-[1200px] flex-1 px-6 pt-12 pb-6 text-center sm:px-10 md:flex-none md:py-16 md:text-left">
         <motion.h1
-          className="hero-title mb-4 text-[clamp(25px,7vw,72px)] font-black text-[#1A1A1A] leading-[1.15] tracking-[-0.02em] md:mb-6 md:text-[55px]"
+          className="hero-title mb-4 text-[clamp(28px,7.5vw,72px)] font-black text-[#1A1A1A] leading-[1.2] tracking-[-0.02em] md:mb-6 md:text-[55px] md:leading-[1.15]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -66,22 +66,17 @@ export function HeroSection() {
           </span>
         </motion.h1>
         <motion.p
-          className="hero-lead mx-auto max-w-[720px] text-[clamp(15px,4vw,19px)] text-[var(--color-text)] leading-[1.8] font-normal md:mx-0 md:text-lg md:leading-[1.7]"
+          className="hero-lead mx-auto max-w-[720px] text-[clamp(14px,3.8vw,19px)] text-[var(--color-text)] leading-[1.75] font-normal md:mx-0 md:text-lg md:leading-[1.7]"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
         >
-          <span className="block space-y-2 md:hidden">
-            {heroContent.subheading.mobile.map(([first, second]) => {
-              const key = `${first}-${second}`;
-              return (
-                <span key={key} className="block">
-                  {first}
-                  <br />
-                  {second}
-                </span>
-              );
-            })}
+          <span className="block md:hidden">
+            {heroContent.subheading.mobile.map((line, index) => (
+              <span key={index} className="block">
+                {line}
+              </span>
+            ))}
           </span>
           <span className="hidden space-y-2 md:block">
             {heroContent.subheading.desktop.map((line) => (
@@ -103,8 +98,8 @@ export function HeroSection() {
         >
           {/* みかわAI学校からのお知らせ */}
           <div className="banner-header text-center py-3 px-4 border-b border-gray-200 bg-white">
-            <p className="text-xs md:text-sm text-[var(--color-text)] font-medium flex items-center justify-center gap-2">
-              <span>みかわAI学校からのお知らせ</span>
+            <p className="text-sm md:text-sm text-[var(--color-text)] font-medium flex items-center justify-center gap-2">
+              <span className="whitespace-nowrap">みかわAI学校からのお知らせ</span>
               <span className="animate-bounce text-base">↓</span>
             </p>
           </div>
@@ -112,11 +107,11 @@ export function HeroSection() {
           {/* バナー本体 */}
           <div className="banner-link relative grid grid-cols-1 items-center gap-0 bg-white p-0 md:grid-cols-[auto_1fr_auto] md:gap-6">
             <Link href="#news" className="contents">
-              <div className="banner-date bg-[#F0F0F0] px-6 py-4 text-center text-sm font-bold text-[#333] md:px-8 md:py-6 md:text-left md:text-base">
-                10月イベント開催案内
+              <div className="banner-date bg-[#F0F0F0] px-4 py-4 text-center text-sm font-bold text-[#333] md:px-8 md:py-6 md:text-left md:text-base">
+                <span className="whitespace-nowrap">10月イベント開催案内</span>
               </div>
-              <div className="banner-text px-6 py-4 text-center text-sm font-normal text-[var(--color-text)] md:px-4 md:py-6 md:text-left md:text-base">
-                中小企業経営者向け(10/28)&福祉事業所向け(10/31)セミナー参加登録受付中！
+              <div className="banner-text px-4 py-4 text-center text-[13px] leading-[1.6] font-normal text-[var(--color-text)] md:px-4 md:py-6 md:text-left md:text-base md:leading-normal">
+                中小企業経営者向け(10/28)&<wbr />福祉事業所向け(10/31)<wbr />セミナー参加登録受付中！
               </div>
             </Link>
             <button

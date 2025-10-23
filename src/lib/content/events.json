@@ -1,6 +1,31 @@
 {
   "events": [
     {
+      "id": "event-2025-11-05",
+      "type": "workshop",
+      "category": "スキル講座",
+      "date": "2025-11-05",
+      "displayDate": "2025年11月5日（火）",
+      "time": "16:00〜18:00",
+      "title": "AI初心者のためのホームページ作成セミナー",
+      "subtitle": "～Readdyで「自分のサイト」をAIと一緒に作ってみよう～",
+      "description": "AIホームページ作成ツール「Readdy（レディ）」を使って、パソコンが苦手な方でも自分のホームページをAIと一緒に作れる体験セミナーです。デザインやコードの知識は一切不要。質問しやすい少人数制で、講師が一人ひとりを丁寧にサポートします。",
+      "target": "AIを使って仕事や活動をもっと広げたい方、自分やお店のホームページをつくってみたい方、専門知識がなくてもAIで制作できる体験をしてみたい方",
+      "tags": ["AI", "ホームページ", "Readdy", "初心者向け"],
+      "capacity": "最大6名",
+      "fee": "無料",
+      "status": "upcoming",
+      "imageUrl": "/images/AIセミナーアイキャッチ.png",
+      "link": "/events/skill-hp-workshop-1105",
+      "venue": "小坂井葵風館 会議室2",
+      "requirements": "ノートPC（Wi-Fi完備）",
+      "learnings": [
+        "AIツール「Readdy」の基本操作",
+        "実際にAIと一緒にホームページを作る体験",
+        "自分の活動や事業に合ったページ構成・デザインの考え方"
+      ]
+    },
+    {
       "id": "event-2025-10-24",
       "type": "seminar",
       "category": "セミナー",

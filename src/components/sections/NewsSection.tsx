@@ -73,16 +73,18 @@ export function NewsSection() {
       <div className="container mx-auto px-6 sm:px-10 max-w-[1400px]">
         {/* ヘッダー */}
         <div className="text-center mb-20">
-          <h2 className="text-[clamp(48px,8vw,120px)] font-black text-[#1A1A1A] mb-6 tracking-tight leading-none">
+          <h2 className="text-[clamp(40px,10vw,120px)] font-black text-[#1A1A1A] mb-6 tracking-tight leading-none">
             NEWS & MEDIA
           </h2>
-          <p className="text-sm md:text-base text-[var(--color-text-light)] mb-8">お知らせ・メディア情報</p>
-          
-          <h3 className="text-2xl md:text-4xl font-bold text-[var(--color-primary)] mb-6">
+          <p className="text-sm md:text-base text-[var(--color-text-light)] mb-8 px-4">
+            お知らせ・メディア情報
+          </p>
+
+          <h3 className="text-[clamp(20px,5vw,36px)] md:text-4xl font-bold text-[var(--color-primary)] mb-6 px-4 leading-tight">
             最新情報をお届けします
           </h3>
-          <p className="text-base md:text-lg text-[var(--color-text)] leading-relaxed max-w-[700px] mx-auto">
-            みかわAI学校のイベント情報や活動報告、メディア掲載情報などをご覧いただけます。
+          <p className="text-[15px] md:text-lg text-[var(--color-text)] leading-relaxed max-w-[700px] mx-auto px-4">
+            みかわAI学校の<wbr />イベント情報や<wbr />活動報告、<wbr />メディア掲載情報などを<wbr />ご覧いただけます。
           </p>
         </div>
 

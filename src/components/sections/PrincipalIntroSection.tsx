@@ -11,8 +11,8 @@ export function PrincipalIntroSection() {
       <div className="container mx-auto px-6 sm:px-10 max-w-[1200px]">
         {/* ヘッダー */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] mb-4">
-            学長からのメッセージ
+          <h2 className="text-[clamp(24px,6vw,48px)] md:text-5xl font-bold text-[var(--color-primary)] mb-4 px-4 leading-tight">
+            学長からの<wbr />メッセージ
           </h2>
         </div>
 

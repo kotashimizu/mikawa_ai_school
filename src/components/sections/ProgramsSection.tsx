@@ -10,12 +10,12 @@ export function ProgramsSection() {
       <div className="container mx-auto px-6 sm:px-10 max-w-[1400px]">
         {/* ヘッダー */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] mb-6">
-            あなたに合った学び方を見つけよう
+          <h2 className="text-[clamp(24px,6vw,48px)] md:text-5xl font-bold text-[var(--color-primary)] mb-6 leading-tight px-4">
+            あなたに合った<wbr />学び方を見つけよう
           </h2>
-          <p className="text-base md:text-lg text-[var(--color-text)] leading-relaxed max-w-[700px] mx-auto">
-            レベルや目的に合わせて3つのプログラムをご用意。<br />
-            まずは無料のプログラムで、AIの世界に触れてみませんか？
+          <p className="text-[15px] md:text-lg text-[var(--color-text)] leading-relaxed max-w-[700px] mx-auto px-4">
+            レベルや目的に合わせて<wbr />3つのプログラムをご用意。<br className="hidden sm:block" />
+            まずは無料のプログラムで、<wbr />AIの世界に触れてみませんか？
           </p>
         </div>
 

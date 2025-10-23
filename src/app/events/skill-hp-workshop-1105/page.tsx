@@ -9,12 +9,13 @@ export default function SkillHpWorkshop1105Page() {
     title: 'AI初心者のためのホームページ作成セミナー',
     subtitle: '～Readdyで"自分のサイト"をAIと一緒に作ってみよう～',
     date: '2025年11月5日（火）',
-    time: '14:00～17:00',
-    location: '三河AI学校（豊川市内）',
+    time: '16:00～18:00',
+    location: '小坂井葵風館 会議室2',
     capacity: '最大6名（少人数・先着順）',
     fee: '無料',
     requirements: 'ノートPC（Wi-Fi完備）',
     status: '申込締切',
+    bannerImage: '/images/AIセミナーアイキャッチ.png',
     description: 'AIホームページ作成ツール「Readdy（レディ）」を使って、パソコンが苦手な方でも自分のホームページをAIと一緒に作れる体験セミナーを開催します。デザインやコードの知識は一切不要。質問しやすい少人数制（最大6名）で、講師が一人ひとりを丁寧にサポートします。',
     recommended: [
       'AIを使って仕事や活動をもっと広げたい方',
@@ -40,7 +41,7 @@ export default function SkillHpWorkshop1105Page() {
   return (
     <div className="flex flex-col">
       {/* ヒーロー */}
-      <section className="relative py-24 md:py-32 bg-gradient-to-br from-[#0F766E] via-[#14B8A6] to-[#2DD4BF] overflow-hidden">
+      <section className="relative py-20 md:py-24 bg-gradient-to-br from-[#0F766E] via-[#14B8A6] to-[#2DD4BF] overflow-hidden">
         {/* 背景装飾 */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -90,7 +91,8 @@ export default function SkillHpWorkshop1105Page() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-4xl md:text-6xl font-black text-white mb-4 leading-tight tracking-tight"
             >
-              {eventData.title}
+              AI初心者のための<br />
+              ホームページ作成セミナー
             </motion.h1>
 
             <motion.p
@@ -126,8 +128,23 @@ export default function SkillHpWorkshop1105Page() {
         </div>
       </section>
 
+      {/* バナー画像 */}
+      {eventData.bannerImage && (
+        <section className="bg-white py-8 md:py-12">
+          <div className="container mx-auto px-6 sm:px-10 max-w-[1000px]">
+            <div className="rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <img
+                src={eventData.bannerImage}
+                alt={eventData.title}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* 説明 */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

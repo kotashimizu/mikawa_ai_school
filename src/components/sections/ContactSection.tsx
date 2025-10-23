@@ -11,21 +11,23 @@ export function ContactSection() {
       <div className="container mx-auto px-6 sm:px-10 max-w-[1400px]">
         {/* ヘッダー */}
         <div className="text-center mb-20">
-          <h2 id="contact-heading" className="text-[clamp(48px,8vw,120px)] font-black text-[#1A1A1A] mb-6 tracking-tight leading-none">
+          <h2 id="contact-heading" className="text-[clamp(40px,10vw,120px)] font-black text-[#1A1A1A] mb-6 tracking-tight leading-none">
             CONTACT
           </h2>
-          <p className="text-sm md:text-base text-[var(--color-text-light)] mb-8">お問い合わせ</p>
-          
-          <h3 className="text-2xl md:text-4xl font-bold text-[var(--color-primary)] mb-6">
-            まずは気軽にお問い合わせください
+          <p className="text-sm md:text-base text-[var(--color-text-light)] mb-8 px-4">
+            お問い合わせ
+          </p>
+
+          <h3 className="text-[clamp(20px,5vw,36px)] md:text-4xl font-bold text-[var(--color-primary)] mb-6 px-4 leading-tight">
+            まずは気軽に<wbr />お問い合わせください
           </h3>
-          <p className="text-base md:text-lg text-[var(--color-text)] leading-relaxed max-w-[700px] mx-auto">
-            各プログラムへのお申し込み、ご相談は<br />
-            Instagram/Facebookからお気軽にどうぞ。
+          <p className="text-[15px] md:text-lg text-[var(--color-text)] leading-relaxed max-w-[700px] mx-auto px-4">
+            各プログラムへの<wbr />お申し込み、<wbr />ご相談は<br className="hidden sm:block" />
+            Instagram/Facebook<wbr />からお気軽にどうぞ。
           </p>
         </div>
 
-        <div className="space-y-8 md:grid md:grid-cols-2 md:gap-6 md:space-y-0 lg:gap-10">
+        <div className="max-w-[600px] mx-auto">
           <div className="flex flex-col space-y-6">
             {/* SNSボタン */}
             <div className="space-y-3">
@@ -67,19 +69,6 @@ export function ContactSection() {
               <EnvelopeIcon className="w-6 h-6" />
               メールで問い合わせる
             </Link>
-          </div>
-          <div className="rounded-2xl bg-gradient-to-br from-primary/10 via-white to-slate-50 p-6 text-sm text-slate-600 shadow-[0_20px_60px_rgba(15,25,55,0.08)] sm:p-8">
-            <ul className="space-y-4">
-              <li>
-                <span className="font-semibold text-slate-900">STEP 1.</span> 希望するプログラムと参加人数をお知らせください。
-              </li>
-              <li>
-                <span className="font-semibold text-slate-900">STEP 2.</span> 1営業日以内にヒアリング日程をご案内します。
-              </li>
-              <li>
-                <span className="font-semibold text-slate-900">STEP 3.</span> ヒアリング後、個社に合わせたプログラムをご提案します。
-              </li>
-            </ul>
           </div>
         </div>
       </div>

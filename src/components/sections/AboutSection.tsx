@@ -123,16 +123,18 @@ export function AboutSection() {
       <div className="container mx-auto px-6 sm:px-10 max-w-[1400px]">
         {/* ヘッダー */}
         <div className="text-center mb-20">
-          <h2 className="text-[clamp(48px,8vw,120px)] font-black text-[#1A1A1A] mb-6 tracking-tight leading-none">
+          <h2 className="text-[clamp(40px,10vw,120px)] font-black text-[#1A1A1A] mb-6 tracking-tight leading-none">
             UNIQUENESS
           </h2>
-          <p className="text-sm md:text-base text-[var(--color-text-light)] mb-8">みかわAI学校の特長</p>
-          
-          <h3 className="text-2xl md:text-4xl font-bold text-[var(--color-primary)] mb-6">
-            地域で学べる、実務で使える、誰でも始められる
+          <p className="text-sm md:text-base text-[var(--color-text-light)] mb-8 px-4">
+            みかわAI学校の特長
+          </p>
+
+          <h3 className="text-[clamp(20px,5vw,36px)] md:text-4xl font-bold text-[var(--color-primary)] mb-6 px-4 leading-tight">
+            地域で学べる、実務で使える、<wbr />誰でも始められる
           </h3>
-          <p className="text-base md:text-lg text-[var(--color-text)] leading-relaxed max-w-[700px] mx-auto">
-            みかわAI学校では、あなたのニーズに合わせた学び方を提供します。対面での実践的なハンズオンから、柔軟な時間設定、すぐに使える実務テンプレまで、初めての方でも安心して学べる環境を整えています。
+          <p className="text-[15px] md:text-lg text-[var(--color-text)] leading-relaxed max-w-[700px] mx-auto px-4">
+            みかわAI学校では、<wbr />あなたのニーズに合わせた<wbr />学び方を提供します。<wbr />対面での実践的な<wbr />ハンズオンから、<wbr />柔軟な時間設定、<wbr />すぐに使える<wbr />実務テンプレまで、<wbr />初めての方でも<wbr />安心して学べる<wbr />環境を整えています。
           </p>
         </div>
 

@@ -11,9 +11,12 @@ export function LearningFlowSection() {
       <div className="container mx-auto px-6 sm:px-10 max-w-[1400px]">
         {/* ヘッダー */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-primary)] mb-6">
+          <h2 className="text-[clamp(24px,6vw,48px)] md:text-5xl font-bold text-[var(--color-primary)] mb-4 px-4 leading-tight">
             学びのステップ
           </h2>
+          <p className="text-[14px] md:text-base text-[var(--color-text-light)] max-w-[700px] mx-auto px-4 leading-relaxed">
+            ※この順番は一例です。あなたのペースやニーズに合わせて、<wbr />どのステップからでも自由に始められます。
+          </p>
         </div>
 
         {/* ステップ */}
@@ -58,7 +61,7 @@ export function LearningFlowSection() {
             href="#programs"
             className="inline-flex items-center justify-center gap-2 py-4 px-8 bg-[var(--color-primary)] hover:bg-[#15395A] text-white rounded-full font-bold text-base transition-all duration-300"
           >
-            <span>まずはSTEP 1から始める</span>
+            <span>あなたに合ったプログラムを見る</span>
             <ArrowRightIcon className="w-5 h-5" />
           </Link>
         </div>
