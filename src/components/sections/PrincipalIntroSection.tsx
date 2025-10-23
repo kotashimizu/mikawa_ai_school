@@ -63,14 +63,48 @@ export function PrincipalIntroSection() {
               {/* 経歴・背景 */}
               <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 border border-slate-100">
                 <h5 className="text-lg font-bold text-[var(--color-primary)] mb-3">経歴・背景</h5>
-                <p className="text-sm text-[var(--color-text)] leading-relaxed">
+                <p className="text-sm text-[var(--color-text)] leading-relaxed mb-4">
                   {principalProfile.story}
+                </p>
+                <div className="mt-4 pt-4 border-t border-slate-200">
+                  <h6 className="text-sm font-bold text-[var(--color-primary)] mb-2">専門分野</h6>
+                  <ul className="space-y-2">
+                    {principalProfile.expertise.map((item, index) => (
+                      <li key={index} className="flex items-start gap-2 text-sm text-[var(--color-text)]">
+                        <span className="text-[var(--color-accent)] mt-1">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* みかわAI学校での役割 */}
+              <div className="bg-gradient-to-br from-teal-50 to-white rounded-2xl p-6 border border-teal-100">
+                <h5 className="text-lg font-bold text-[var(--color-primary)] mb-3">みかわAI学校での役割</h5>
+                <p className="text-sm text-[var(--color-text)] leading-relaxed">
+                  {principalProfile.role}
                 </p>
               </div>
 
-              {/* メッセージ */}
+              {/* 教育方針 */}
               <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100">
-                <h5 className="text-lg font-bold text-[var(--color-primary)] mb-3">想い</h5>
+                <h5 className="text-lg font-bold text-[var(--color-primary)] mb-3">
+                  {principalProfile.philosophy.title}
+                </h5>
+                <ul className="space-y-2">
+                  {principalProfile.philosophy.points.map((point, index) => (
+                    <li key={index} className="flex items-start gap-2 text-sm text-[var(--color-text)]">
+                      <span className="text-[var(--color-accent)] mt-1">・</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* メッセージ */}
+              <div className="bg-gradient-to-br from-amber-50 to-white rounded-2xl p-6 border border-amber-100">
+                <h5 className="text-lg font-bold text-[var(--color-primary)] mb-3">メッセージ</h5>
                 <p className="text-sm text-[var(--color-text)] leading-relaxed italic">
                   「{principalProfile.message}」
                 </p>

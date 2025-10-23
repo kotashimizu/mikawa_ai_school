@@ -57,21 +57,27 @@ export function Header() {
 
               {/* サブメニュー */}
               {item.hasSubmenu && openSubmenu === item.label && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 py-2 z-50">
-                  {item.submenu?.map((subItem) => (
-                    <a
-                      key={subItem.href}
-                      href={subItem.href}
-                      className="flex items-center justify-between px-4 py-3 text-sm text-[var(--color-text)] hover:bg-slate-50 hover:text-[var(--color-primary)] transition-colors"
-                    >
-                      <span>{subItem.label}</span>
-                      {subItem.badge && (
-                        <span className="text-xs bg-[var(--color-accent)] text-white px-2 py-1 rounded-full font-bold">
-                          {subItem.badge}
-                        </span>
-                      )}
-                    </a>
-                  ))}
+                <div
+                  className="absolute top-full left-0 pt-2 z-50"
+                  onMouseEnter={() => setOpenSubmenu(item.label)}
+                  onMouseLeave={() => setOpenSubmenu(null)}
+                >
+                  <div className="w-56 bg-white rounded-lg shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 py-2">
+                    {item.submenu?.map((subItem) => (
+                      <a
+                        key={subItem.href}
+                        href={subItem.href}
+                        className="flex items-center justify-between px-4 py-3 text-sm text-[var(--color-text)] hover:bg-slate-50 hover:text-[var(--color-primary)] transition-colors"
+                      >
+                        <span>{subItem.label}</span>
+                        {subItem.badge && (
+                          <span className="text-xs bg-[var(--color-accent)] text-white px-2 py-1 rounded-full font-bold">
+                            {subItem.badge}
+                          </span>
+                        )}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
