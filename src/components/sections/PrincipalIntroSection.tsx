@@ -49,22 +49,63 @@ export function PrincipalIntroSection() {
             </div>
 
             {/* 右側：メッセージ */}
-            <div className="flex flex-col justify-center">
-              <div className="mb-6">
-                <p className="text-base md:text-lg text-[var(--color-text)] leading-relaxed mb-4">
-                  「三河からAIを使いこなせる人を増やしたい。」
-                </p>
-                <p className="text-base md:text-lg text-[var(--color-text)] leading-relaxed mb-4">
-                  そんな想いで、この学校を立ち上げました。
-                </p>
-                <p className="text-base md:text-lg text-[var(--color-text)] leading-relaxed">
-                  世代や立場に関係なく、一緒に学んでいきましょう。
+            <div className="flex flex-col justify-center space-y-6">
+              {/* メインメッセージ */}
+              <div>
+                <h4 className="text-xl md:text-2xl font-bold text-[var(--color-primary)] mb-4">
+                  「三河からAIを使いこなせる人を増やしたい」
+                </h4>
+                <p className="text-base text-[var(--color-text)] leading-relaxed">
+                  {principalProfile.introduction}
                 </p>
               </div>
 
+              {/* 経歴・背景 */}
+              <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 border border-slate-100">
+                <h5 className="text-lg font-bold text-[var(--color-primary)] mb-3">経歴・背景</h5>
+                <p className="text-sm text-[var(--color-text)] leading-relaxed">
+                  {principalProfile.story}
+                </p>
+              </div>
+
+              {/* メッセージ */}
+              <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100">
+                <h5 className="text-lg font-bold text-[var(--color-primary)] mb-3">想い</h5>
+                <p className="text-sm text-[var(--color-text)] leading-relaxed italic">
+                  「{principalProfile.message}」
+                </p>
+              </div>
+
+              {/* 興味・関心 */}
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h5 className="text-base font-bold text-[var(--color-primary)] mb-2">趣味</h5>
+                  <ul className="space-y-1">
+                    {principalProfile.hobbies.map((hobby, index) => (
+                      <li key={index} className="flex items-start gap-2 text-sm text-[var(--color-text)]">
+                        <span className="text-[var(--color-accent)] mt-1">・</span>
+                        <span>{hobby}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="text-base font-bold text-[var(--color-primary)] mb-2">好きなテーマ</h5>
+                  <ul className="space-y-1">
+                    {principalProfile.favoriteTopics.map((topic, index) => (
+                      <li key={index} className="flex items-start gap-2 text-sm text-[var(--color-text)]">
+                        <span className="text-[var(--color-accent)] mt-1">・</span>
+                        <span>{topic}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* 詳細リンク */}
               <Link
                 href="/principal"
-                className="inline-flex items-center gap-2 text-[var(--color-primary)] hover:text-[#15395A] font-bold transition-colors duration-300"
+                className="inline-flex items-center gap-2 text-[var(--color-primary)] hover:text-[#15395A] font-bold transition-colors duration-300 self-start"
               >
                 <span>詳しいプロフィールを見る</span>
                 <span className="text-xl">→</span>

@@ -1,9 +1,19 @@
 'use client';
 
 import { useState } from 'react';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
 const navigationItems = [
-  { label: 'プログラム', href: '/#programs' },
+  {
+    label: 'プログラム',
+    href: '/#programs',
+    hasSubmenu: true,
+    submenu: [
+      { label: 'ゆるやかセミナー', href: '/programs/seminar', badge: '無料' },
+      { label: 'AIビジネス講座', href: '/programs/business', badge: '初回無料' },
+      { label: 'AIスキル講座', href: '/programs/skill', badge: '初回無料' },
+    ],
+  },
   { label: 'イベント', href: '/events' },
   { label: '学長紹介', href: '/principal' },
   { label: 'お知らせ', href: '/news' },
@@ -16,6 +26,7 @@ const noteLink = {
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   return (
     <header className="site-header fixed top-0 left-0 w-full h-[72px] md:h-[95px] bg-white shadow-[var(--shadow-sm)] z-[1000]">
@@ -28,13 +39,42 @@ export function Header() {
         {/* PC用ナビゲーション（md以上で表示） */}
         <nav className="hidden md:flex items-center gap-8">
           {navigationItems.map((item) => (
-            <a
+            <div
               key={item.href}
-              href={item.href}
-              className="text-base font-medium text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors"
+              className="relative"
+              onMouseEnter={() => item.hasSubmenu && setOpenSubmenu(item.label)}
+              onMouseLeave={() => setOpenSubmenu(null)}
             >
-              {item.label}
-            </a>
+              <a
+                href={item.href}
+                className="flex items-center gap-1 text-base font-medium text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors"
+              >
+                {item.label}
+                {item.hasSubmenu && (
+                  <ChevronDownIcon className="w-4 h-4" />
+                )}
+              </a>
+
+              {/* サブメニュー */}
+              {item.hasSubmenu && openSubmenu === item.label && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 py-2 z-50">
+                  {item.submenu?.map((subItem) => (
+                    <a
+                      key={subItem.href}
+                      href={subItem.href}
+                      className="flex items-center justify-between px-4 py-3 text-sm text-[var(--color-text)] hover:bg-slate-50 hover:text-[var(--color-primary)] transition-colors"
+                    >
+                      <span>{subItem.label}</span>
+                      {subItem.badge && (
+                        <span className="text-xs bg-[var(--color-accent)] text-white px-2 py-1 rounded-full font-bold">
+                          {subItem.badge}
+                        </span>
+                      )}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
           <a
             href={noteLink.href}
@@ -83,13 +123,44 @@ export function Header() {
               <ul className="drawer-nav mb-12">
                 {navigationItems.map((item) => (
                   <li key={item.href} className="border-b border-[var(--color-border)]">
-                    <a
-                      href={item.href}
-                      className="block py-4 text-lg font-medium transition-colors hover:text-[var(--color-primary)]"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.label}
-                    </a>
+                    {item.hasSubmenu ? (
+                      <div>
+                        <a
+                          href={item.href}
+                          className="block py-4 text-lg font-medium transition-colors hover:text-[var(--color-primary)]"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {item.label}
+                        </a>
+                        {/* モバイル用サブメニュー */}
+                        <ul className="pl-4 pb-2">
+                          {item.submenu?.map((subItem) => (
+                            <li key={subItem.href}>
+                              <a
+                                href={subItem.href}
+                                className="flex items-center justify-between py-2 text-base text-[var(--color-text)] transition-colors hover:text-[var(--color-primary)]"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                <span>{subItem.label}</span>
+                                {subItem.badge && (
+                                  <span className="text-xs bg-[var(--color-accent)] text-white px-2 py-1 rounded-full font-bold">
+                                    {subItem.badge}
+                                  </span>
+                                )}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="block py-4 text-lg font-medium transition-colors hover:text-[var(--color-primary)]"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.label}
+                      </a>
+                    )}
                   </li>
                 ))}
                 <li className="border-b border-[var(--color-border)]">
