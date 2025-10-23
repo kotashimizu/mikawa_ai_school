@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 const navigationItems = [
+  { label: 'プログラム', href: '/#programs' },
   { label: 'イベント', href: '/events' },
   { label: '学長紹介', href: '/principal' },
   { label: 'お知らせ', href: '/news' },
