@@ -2,19 +2,20 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { UsersIcon, ClockIcon, BriefcaseIcon, RocketLaunchIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 
 // 個別カードコンポーネント
-function FeatureCard({ 
-  feature, 
-  direction, 
-  delay 
-}: { 
+function FeatureCard({
+  feature,
+  direction,
+  delay
+}: {
   feature: {
     number: string;
     title: string;
     description: string;
     highlight: string;
-    image: string;
+    icon: React.ReactNode;
     bgColor: string;
     slug: string; // 詳細ページへのリンク用
   };
@@ -39,13 +40,13 @@ function FeatureCard({
         <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgColor} opacity-50`} />
         
         <div className="relative grid min-h-[260px] md:min-h-[280px] md:grid-cols-[minmax(140px,200px)_1fr]">
-          {/* 左側：番号と画像 */}
+          {/* 左側：番号とアイコン */}
           <div className="flex flex-col items-center justify-center gap-4 p-8 bg-white/50 backdrop-blur-sm">
             <div className="text-[64px] md:text-[100px] font-black text-[var(--color-primary)]/20 leading-none">
               {feature.number}
             </div>
-            <div className="text-5xl md:text-7xl opacity-80 transition-transform duration-300 group-hover:scale-110">
-              {feature.image}
+            <div className="w-16 h-16 md:w-20 md:h-20 text-[var(--color-primary)] opacity-80 transition-transform duration-300 group-hover:scale-110">
+              {feature.icon}
             </div>
           </div>
 
@@ -66,9 +67,9 @@ function FeatureCard({
               )}
             </p>
             {/* 詳細を見るアイコン */}
-            <div className="mt-4 flex items-center text-[var(--color-primary)] font-medium text-sm group-hover:translate-x-2 transition-transform duration-300">
+            <div className="mt-4 flex items-center gap-2 text-[var(--color-primary)] font-medium text-sm group-hover:translate-x-2 transition-transform duration-300">
               <span>詳しく見る</span>
-              <span className="ml-2 text-xl">→</span>
+              <ArrowRightIcon className="w-4 h-4" />
             </div>
           </div>
         </div>
@@ -84,7 +85,7 @@ export function AboutSection() {
       title: '地域で直接学べる',
       description: '講師や仲間と対面で学べる少人数ハンズオンで、',
       highlight: '実務につながるスキルを確実に習得します。',
-      image: '👥',
+      icon: <UsersIcon className="w-full h-full" />,
       bgColor: 'from-blue-50 to-indigo-50',
       slug: 'in-person',
     },
@@ -93,7 +94,7 @@ export function AboutSection() {
       title: '時間は柔軟に',
       description: '日中・夜間・土日など、地域のニーズに合わせた時間帯で開催できます。',
       highlight: '希望時間はリクエスト可能です。',
-      image: '⏰',
+      icon: <ClockIcon className="w-full h-full" />,
       bgColor: 'from-amber-50 to-yellow-50',
       slug: 'flexible-time',
     },
@@ -102,7 +103,7 @@ export function AboutSection() {
       title: 'すぐ使える（実務直結）',
       description: '当日配布のテンプレやワークで、',
       highlight: '明日から使えるAIの実践スキルを持ち帰れます。',
-      image: '💼',
+      icon: <BriefcaseIcon className="w-full h-full" />,
       bgColor: 'from-slate-50 to-gray-50',
       slug: 'practical',
     },
@@ -111,7 +112,7 @@ export function AboutSection() {
       title: '気軽に始められる',
       description: '無料枠や初心者向けの体験回で、',
       highlight: '初めてでも安心して始められます。',
-      image: '🚀',
+      icon: <RocketLaunchIcon className="w-full h-full" />,
       bgColor: 'from-teal-50 to-cyan-50',
       slug: 'easy-start',
     },

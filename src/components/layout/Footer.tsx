@@ -1,6 +1,7 @@
 'use client';
 
 import NextLink from 'next/link';
+import { ArrowUpIcon, ArrowRightIcon, ArrowTopRightOnSquareIcon, EnvelopeIcon } from '@heroicons/react/24/solid';
 import { supportLinks } from '@/lib/constants/navigation';
 
 export function Footer() {
@@ -13,7 +14,7 @@ export function Footer() {
           className="scroll-top inline-flex flex-col items-center gap-2 py-6 px-4 bg-white text-[var(--color-primary)] rounded-lg font-bold cursor-pointer transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-md)]"
         >
           <span>TOP</span>
-          <span>↑</span>
+          <ArrowUpIcon className="w-5 h-5" />
         </button>
 
         {/* お問い合わせ */}
@@ -23,7 +24,7 @@ export function Footer() {
             href="mailto:info@ichi-company.net"
             className="contact-email inline-flex items-center gap-2 text-lg font-bold text-[var(--color-accent)] mb-4"
           >
-            <span>✉</span>
+            <EnvelopeIcon className="w-5 h-5" />
             info@ichi-company.net
           </NextLink>
           <p className="text-sm text-white/70">運営に関するお問い合わせはメールでご連絡ください</p>
@@ -40,7 +41,7 @@ export function Footer() {
               className="quick-link flex items-center justify-between py-3 px-4 bg-white/10 rounded-lg transition-all hover:bg-white/20 hover:translate-x-1"
             >
               <span>{link.label}</span>
-              <span>→</span>
+              <ArrowRightIcon className="w-4 h-4" />
             </NextLink>
           ))}
         </div>
@@ -78,10 +79,10 @@ export function Footer() {
                   href={link.href}
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
-                  className="text-sm text-white/80 transition-colors hover:text-white hover:underline"
+                  className="text-sm text-white/80 transition-colors hover:text-white hover:underline inline-flex items-center gap-1"
                 >
                   {link.label}
-                  {link.external ? ' ↗' : ''}
+                  {link.external && <ArrowTopRightOnSquareIcon className="w-3 h-3" />}
                 </NextLink>
               </li>
             ))}
@@ -105,9 +106,10 @@ export function Footer() {
                 href="https://note.com/shimizu_ai_ichi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-white/80 transition-colors hover:text-white hover:underline"
+                className="text-sm text-white/80 transition-colors hover:text-white hover:underline inline-flex items-center gap-1"
               >
-                note ↗
+                note
+                <ArrowTopRightOnSquareIcon className="w-3 h-3" />
               </a>
             </li>
           </ul>

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { PhoneIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 
 export function FixedCta() {
   const [visible, setVisible] = useState(false);
@@ -27,9 +28,9 @@ export function FixedCta() {
       >
         <span className="cta-label text-xs font-bold mb-2 tracking-[0.3em] uppercase">24時間いつでも</span>
         <span className="cta-text flex items-center gap-2 text-sm font-bold text-center">
-          <span aria-hidden className="text-base">📞</span>
+          <PhoneIcon className="w-4 h-4" />
           オンライン相談はこちら
-          <span aria-hidden>→</span>
+          <ArrowRightIcon className="w-4 h-4" />
         </span>
       </Link>
     </div>
