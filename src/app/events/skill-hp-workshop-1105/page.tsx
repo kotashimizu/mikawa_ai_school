@@ -6,7 +6,7 @@ import { CalendarIcon, MapPinIcon, UserGroupIcon, CheckIcon, ArrowLeftIcon } fro
 
 export default function SkillHpWorkshop1105Page() {
   const eventData = {
-    title: 'AI初心者のためのホームページ作成セミナー',
+    title: 'AI初心者のためのホームページ作成講座',
     subtitle: '～Readdyで"自分のサイト"をAIと一緒に作ってみよう～',
     date: '2025年11月5日（火）',
     time: '16:00～18:00',
