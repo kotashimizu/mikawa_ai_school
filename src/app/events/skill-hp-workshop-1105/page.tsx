@@ -48,7 +48,7 @@ export default function SkillHpWorkshop1105Page() {
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
         </div>
 
-        <div className="container mx-auto px-6 sm:px-10 max-w-[900px] relative z-10">
+        <div className="mx-auto px-6 sm:px-10 max-w-[900px] relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -131,7 +131,7 @@ export default function SkillHpWorkshop1105Page() {
       {/* バナー画像 */}
       {eventData.bannerImage && (
         <section className="bg-white py-8 md:py-12">
-          <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
+          <div className="mx-auto px-6 sm:px-10 max-w-[900px]">
             <div className="rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
               <img
                 src={eventData.bannerImage}
@@ -145,7 +145,7 @@ export default function SkillHpWorkshop1105Page() {
 
       {/* 説明 */}
       <section className="py-12 md:py-16 bg-white">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
+        <div className="mx-auto px-6 sm:px-10 max-w-[900px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -161,7 +161,7 @@ export default function SkillHpWorkshop1105Page() {
 
       {/* こんな方におすすめ */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-teal-50 to-white">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
+        <div className="mx-auto px-6 sm:px-10 max-w-[900px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -192,7 +192,7 @@ export default function SkillHpWorkshop1105Page() {
 
       {/* セミナーで学べること */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
+        <div className="mx-auto px-6 sm:px-10 max-w-[900px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -228,7 +228,7 @@ export default function SkillHpWorkshop1105Page() {
 
       {/* 開催概要 */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-white">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
+        <div className="mx-auto px-6 sm:px-10 max-w-[900px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -268,7 +268,7 @@ export default function SkillHpWorkshop1105Page() {
 
       {/* 締切済み・次回開催案内 */}
       <section className="py-20 md:py-32 bg-gradient-to-br from-primary/10 via-white to-slate-50">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
+        <div className="mx-auto px-6 sm:px-10 max-w-[900px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
