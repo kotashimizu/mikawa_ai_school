@@ -8,41 +8,43 @@
       ]
     },
     "serena": {
-      "command": "npx",
+      "command": "uvx",
       "args": [
-        "-y",
-        "serena-mcp"
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server"
       ]
     },
     "context7": {
       "command": "npx",
       "args": [
         "-y",
-        "@upanup/context7"
+        "@upstash/context7-mcp"
       ]
     },
     "cipher": {
-      "command": "npx",
+      "command": "cipher",
       "args": [
-        "-y",
-        "@upanup/cipher-mcp-server"
+        "--mode",
+        "mcp"
       ]
     },
     "notion": {
       "command": "npx",
       "args": [
         "-y",
-        "@upanup/notion-mcp-server"
+        "@notionhq/notion-mcp-server"
       ],
       "env": {
-        "NOTION_API_KEY": "${NOTION_API_KEY}"
+        "NOTION_TOKEN": "${NOTION_TOKEN}"
       }
     },
     "braveSearch": {
       "command": "npx",
       "args": [
         "-y",
-        "@upanup/brave-search"
+        "@brave/brave-search-mcp-server"
       ],
       "env": {
         "BRAVE_API_KEY": "${BRAVE_API_KEY}"
@@ -72,7 +74,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "@upanup/chrome-devtools-mcp-server"
+        "chrome-devtools-mcp@latest"
       ]
     },
     "github": {

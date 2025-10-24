@@ -16,7 +16,7 @@ export default function EventsPage() {
 
   return (
     <div className="bg-white py-16 sm:py-24">
-      <div className="container mx-auto px-6 sm:px-10 max-w-[1200px]">
+      <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
         {/* ヘッダー */}
         <header className="text-center mb-16">
           <h1 className="text-[clamp(48px,8vw,80px)] font-black text-[#1A1A1A] mb-6 tracking-tight leading-none">

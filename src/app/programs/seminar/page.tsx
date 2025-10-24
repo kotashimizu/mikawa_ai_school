@@ -97,7 +97,7 @@ export default function SeminarPage() {
 
       {/* 開催予定 */}
       <section id="schedule" className="py-16 md:py-24 bg-gradient-to-br from-amber-50 via-white to-orange-50">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1200px]">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -191,7 +191,7 @@ export default function SeminarPage() {
 
       {/* こんな方におすすめ */}
       <section id="recommended" className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1200px]">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -222,7 +222,7 @@ export default function SeminarPage() {
 
       {/* セミナーの特徴 */}
       <section className="py-20 md:py-32 bg-[#F0F1F3]">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1200px]">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-12 text-center">
             セミナーの特徴
           </h2>
@@ -251,7 +251,7 @@ export default function SeminarPage() {
 
       {/* 開催スケジュール */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1000px]">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-12 text-center">
             開催スケジュール
           </h2>
@@ -296,7 +296,7 @@ export default function SeminarPage() {
 
       {/* 学べるテーマ */}
       <section className="py-20 md:py-32 bg-[#F0F1F3]">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1200px]">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-12 text-center">
             学べるテーマ
           </h2>
@@ -329,7 +329,7 @@ export default function SeminarPage() {
 
       {/* 当日の流れ */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1000px]">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-12 text-center">
             当日の流れ
           </h2>
@@ -369,7 +369,7 @@ export default function SeminarPage() {
 
       {/* 得られる成果 */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-white">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1200px]">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-10 text-center">
             得られる成果
           </h2>

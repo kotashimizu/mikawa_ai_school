@@ -97,7 +97,7 @@ export default function BusinessCoursePage() {
 
       {/* 開催予定 */}
       <section id="schedule" className="py-16 md:py-24 bg-gradient-to-br from-blue-50 via-white to-slate-50">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1200px]">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -207,7 +207,7 @@ export default function BusinessCoursePage() {
 
       {/* こんな方におすすめ */}
       <section id="recommended" className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1200px]">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -238,7 +238,7 @@ export default function BusinessCoursePage() {
 
       {/* 講座の特徴 */}
       <section className="py-20 md:py-32 bg-[#F0F1F3]">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1200px]">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-12 text-center">
             講座の特徴
           </h2>
@@ -267,7 +267,7 @@ export default function BusinessCoursePage() {
 
       {/* 進め方 */}
       <section className="py-20 md:py-32 bg-white">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1000px]">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-12 text-center">
             進め方
           </h2>
@@ -337,7 +337,7 @@ export default function BusinessCoursePage() {
 
       {/* 料金 */}
       <section className="py-20 md:py-32 bg-[#F0F1F3]">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1000px]">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-12 text-center">
             料金
           </h2>
@@ -376,7 +376,7 @@ export default function BusinessCoursePage() {
 
       {/* 得られる成果 */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-white">
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1200px]">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px]">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-10 text-center">
             得られる成果
           </h2>
