@@ -48,7 +48,7 @@ export default function SkillHpWorkshop1105Page() {
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
         </div>
 
-        <div className="container mx-auto px-6 sm:px-10 max-w-[1200px] relative z-10">
+        <div className="container mx-auto px-6 sm:px-10 max-w-[900px] relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
